@@ -2,40 +2,15 @@ from __future__ import annotations
 
 import json
 import os
-import urllib.parse
 
 from ..common import GUI_ENABLED, running_linux
 from ..paths import data_path
 from .error_popup import gui_error_popup
 from .rubric_selector import gui_rubric_selector
-from .utils import ensure_gui_enabled, setup_text_widget
+from .utils import ensure_gui_enabled, setup_text_widget, url_query_encode
 
 if GUI_ENABLED:
     import PySimpleGUI as sg
-
-
-def url_query_encode(url: str) -> str:
-    """URL encode for query, nonascii
-    regular russian characters allowed (plus space).
-
-    Args:
-        url: URL to be encoded.
-
-    Returns:
-        Encoded URL.
-    """
-    encoded_characters = []
-    for char in url:
-        char_ord = ord(char.lower())
-
-        # Do not escape [а-яё ]
-        if 1072 <= char_ord <= 1103 \
-           or char_ord in (1105, 32):
-            encoded_characters.append(char)
-        else:
-            encoded_characters.append(urllib.parse.quote(char, safe=''))
-
-    return ''.join(encoded_characters)
 
 
 @ensure_gui_enabled

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import contextlib
 import functools
+import urllib.parse
 from typing import TYPE_CHECKING, Callable
 
 from ..common import GUI_ENABLED, running_mac
@@ -191,3 +192,27 @@ def invoke_widget_hook(sg: sg, parent_key: str,
     sg.PackFormIntoFrame = new_PackFormIntoFrame
     yield get_widget
     sg.PackFormIntoFrame = old_PackFormIntoFrame
+
+
+def url_query_encode(url: str) -> str:
+    """URL encode for query, nonascii
+    regular russian characters allowed (plus space).
+
+    Args:
+        url: URL to be encoded.
+
+    Returns:
+        Encoded URL.
+    """
+    encoded_characters = []
+    for char in url:
+        char_ord = ord(char.lower())
+
+        # Do not escape [а-яё ]
+        if 1072 <= char_ord <= 1103 \
+           or char_ord in (1105, 32):
+            encoded_characters.append(char)
+        else:
+            encoded_characters.append(urllib.parse.quote(char, safe=''))
+
+    return ''.join(encoded_characters)

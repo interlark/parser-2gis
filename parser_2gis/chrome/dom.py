@@ -62,7 +62,7 @@ class DOMNode:
             for name_idx in range(0, attributes_list_count, 2):
                 self.attributes[attributes_list[name_idx]] = attributes_list[name_idx + 1]
 
-    def append_child(self, node: DOMNode):
+    def append_child(self, node: DOMNode) -> None:
         self.children.append(node)
 
     def __repr__(self) -> str:
