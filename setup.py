@@ -89,7 +89,7 @@ if __name__ == '__main__':
         include_package_data=True,
         python_requires='>=3.7',
         keywords='parser scraper 2gis',
-        url='https://github.com/interlark/parser_2gis',
+        url='https://github.com/interlark/parser-2gis',
         install_requires=[
             'pychrome==0.2.3',
             'pydantic>=1.9.0',

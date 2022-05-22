@@ -284,7 +284,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
 
         # Click logo
         elif event == '-IMG_LOGO-':
-            webbrowser.open('https://github.com/interlark/parser_2gis')
+            webbrowser.open('https://github.com/interlark/parser-2gis')
 
         # Click stop
         elif event == '-BTN_STOP-':
