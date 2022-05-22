@@ -1,4 +1,9 @@
 # Parser2GIS
+[![Tests](https://github.com/interlark/parser-2gis/actions/workflows/tests.yml/badge.svg)](https://github.com/interlark/parser-2gis/actions/workflows/tests.yml)
+[![PyPi version](https://badgen.net/pypi/v/parser-2gis)](https://pypi.org/project/parser-2gis)
+[![Supported Python versions](https://badgen.net/pypi/python/parser-2gis)](https://pypi.org/project/parser-2gis)
+[![PyPi license](https://badgen.net/pypi/license/parser-2gis)](https://pypi.org/project/parser-2gis)
+
 Парсер сайта [2GIS](https://2gis.ru/) с помощью браузера [Google Chrome](https://google.com/chrome).
 
 ![Screenshot](https://raw.githubusercontent.com/interlark/parser-2gis/main/assets/screenshots/main_and_settings.png)
