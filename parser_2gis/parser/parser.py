@@ -47,7 +47,7 @@ class Parser2GIS:
     @wait_until_finished(timeout=5, throw_exception=False)
     def _get_links(self) -> list[DOMNode]:
         """Extracts specific DOM node links from current DOM snapshot."""
-        def valid_link(node):
+        def valid_link(node: DOMNode) -> bool:
             if node.local_name == 'a' and 'href' in node.attributes:
                 link_match = re.match(r'.*/firm/.*\?stat=(?P<data>[a-zA-Z0-9%]+)', node.attributes['href'])
                 if link_match:

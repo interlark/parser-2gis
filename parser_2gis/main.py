@@ -53,7 +53,7 @@ def patch_argparse_translations() -> None:
 
     orig_gettext = argparse._  # type: ignore[attr-defined]
 
-    def gettext(message):
+    def gettext(message: str) -> str:
         if message in custom_translations:
             return custom_translations[message]
         return orig_gettext(message)
@@ -63,7 +63,7 @@ def patch_argparse_translations() -> None:
     # Also replace hardcoded string `argument` in ArgumentError class
     # (patch tested in Python 3.7, 3.8, 3.9, 3.10)
     # This bug was fixed only on 6 May 2022 https://github.com/python/cpython/pull/17169
-    def argument_error__str__(self):
+    def argument_error__str__(self: argparse.ArgumentError) -> str:
         if self.argument_name is None:
             format = '%(message)s'
         else:

@@ -25,7 +25,7 @@ class Configuration(BaseModel):
     version: str = config_version
 
     def __init__(self, *args, **kwargs) -> None:
-        def setup_config(model):
+        def setup_config(model: BaseModel) -> None:
             """Recursively setup config."""
             self.Config.validate_assignment = True
             for field in model.__fields__:
@@ -38,7 +38,8 @@ class Configuration(BaseModel):
 
     def merge_with(self, other_config: Configuration) -> None:
         """Merge configuration with onother one."""
-        def assign_attributes(model_source, model_target):
+        def assign_attributes(model_source: BaseModel,
+                              model_target: BaseModel) -> None:
             """Recursively assign new attributes to existing config."""
             for field in model_source.__fields_set__:
                 source_attr = getattr(model_source, field)

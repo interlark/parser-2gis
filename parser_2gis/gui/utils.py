@@ -3,16 +3,17 @@ from __future__ import annotations
 import contextlib
 import functools
 import urllib.parse
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING, Any, Callable, TypeVar, cast
 
 from ..common import GUI_ENABLED, running_mac
+
+F = TypeVar('F', bound=Callable[..., Any])
 
 if TYPE_CHECKING:
     import tkinter as tk
 
 if GUI_ENABLED:
     import tkinter as tk  # noqa: F811
-
     import PySimpleGUI as sg
 
 
@@ -31,21 +32,21 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
         menu_clear: Whether text of the `widget` could be cleared with context menu.
         set_focus: Whether to set focus on the `widget`.
     """
-    # def get_text():
+    # def get_text() -> str:
     #     if isinstance(widget, tk.Entry):
     #         return widget.get()
     #     elif isinstance(widget, tk.Text):
     #         return widget.get('1.0','end')
     #     return ''
 
-    def get_clipboard():
+    def get_clipboard() -> str | None:
         try:
             return widget.clipboard_get()
         except tk.TclError:
             # Nothing in clipboard
             return None
 
-    def get_selection():
+    def get_selection() -> str | None:
         if isinstance(widget, tk.Entry):
             if widget.selection_present():
                 return widget.selection_get()
@@ -58,46 +59,45 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
                 # Nothing was selected
                 return None
 
-    def delete_selection():
+    def delete_selection() -> None:
         try:
             widget.delete('sel.first', 'sel.last')  # Works for tk.Entry and tk.Text
         except tk.TclError:
             # Nothing was selected
             pass
 
-    def copy_text():
+    def copy_text() -> None:
         selection = get_selection()
         if selection:
             widget.clipboard_clear()
             widget.clipboard_append(selection)
             widget.update()
 
-    def paste_text():
+    def paste_text() -> None:
         delete_selection()
 
         clipboard = get_clipboard()
         if clipboard:
             widget.insert('insert', clipboard)
 
-    def cut_text():
+    def cut_text() -> None:
         copy_text()
         delete_selection()
 
-    def clear_text():
+    def clear_text() -> None:
         widget.delete('1.0', 'end')
 
-    def select_all():
+    def select_all() -> None:
         if isinstance(widget, tk.Entry):
             widget.select_range(0, 'end')
             widget.icursor('end')
         elif isinstance(widget, tk.Text):
             widget.tag_add('sel', '1.0', 'end')
 
-    def generate_handler(func, with_break=False):
-        def wrapper(event):
+    def generate_handler(func: Callable, with_break: bool = False) -> Callable:
+        def wrapper(event) -> str | None:
             func()
-            if with_break:
-                return 'break'
+            return 'break' if with_break else None
 
         return wrapper
 
@@ -152,7 +152,7 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
         widget.focus_set()
 
 
-def ensure_gui_enabled(func: Callable) -> Callable:
+def ensure_gui_enabled(func: F) -> F:
     """Decorator to be sure GUI is enabled
     before decorated form is run."""
     @functools.wraps(func)
@@ -160,7 +160,7 @@ def ensure_gui_enabled(func: Callable) -> Callable:
         assert GUI_ENABLED, 'GUI is not enabled'
         return func(*args, **kwargs)
 
-    return _ensure_gui_enabled
+    return cast(F, _ensure_gui_enabled)
 
 
 @contextlib.contextmanager
@@ -180,13 +180,13 @@ def invoke_widget_hook(sg: sg, parent_key: str,
     old_PackFormIntoFrame = sg.PackFormIntoFrame
     created_widget = None
 
-    def new_PackFormIntoFrame(form, containing_frame, toplevel_form):
+    def new_PackFormIntoFrame(form, containing_frame, toplevel_form) -> None:
         nonlocal created_widget
         if hasattr(form, 'Key') and form.Key == parent_key:
             created_widget = widget_callback(form, containing_frame, toplevel_form)
         old_PackFormIntoFrame(form, containing_frame, toplevel_form)
 
-    def get_widget():
+    def get_widget() -> tk.Widget | None:
         return created_widget
 
     sg.PackFormIntoFrame = new_PackFormIntoFrame

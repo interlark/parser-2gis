@@ -38,7 +38,7 @@ def running_mac() -> bool:
 def wait_until_finished(timeout: int | None = None,
                         finished: Callable[[Any], bool] = lambda x: bool(x),
                         throw_exception: bool = True,
-                        poll_interval: float = 0.1) -> Any:
+                        poll_interval: float = 0.1) -> Callable[..., Callable[..., Any]]:
     """Decorator that polls wrapped function until time is out or `finished`
     predicate returns `True`.
 
@@ -48,7 +48,7 @@ def wait_until_finished(timeout: int | None = None,
         throw_exception: Whether to throw `TimeoutError`.
         poll_interval: Poll interval for result of decorated function.
     """
-    def outer(func):
+    def outer(func: Callable[..., Any]) -> Callable[..., Any]:
         @functools.wraps(func)
         def inner(*args, timeout=timeout, finished=finished,
                   throw_exception=throw_exception,

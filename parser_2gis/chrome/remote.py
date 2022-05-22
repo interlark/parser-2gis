@@ -5,7 +5,7 @@ import json
 import queue
 import re
 import threading
-from typing import TYPE_CHECKING, Any, Dict
+from typing import TYPE_CHECKING, Any, Callable, Dict
 
 import pychrome
 import requests
@@ -70,7 +70,7 @@ class ChromeRemote:
         self._setup_tab()
         self._init_tab_monitor()
 
-    def _setup_tab(self):
+    def _setup_tab(self) -> None:
         """Hide webdriver, enable requests/response interception, fix UA."""
         # Fix user agent for headless browser
         original_useragent = self.execute_script('navigator.userAgent')
@@ -99,7 +99,7 @@ class ChromeRemote:
         #     else:
         #         self._chrome_tab.Fetch.continueRequest(requestId=request_id)
 
-        def responseReceived(**kwargs):
+        def responseReceived(**kwargs) -> None:
             """Gather responses."""
             response = kwargs.pop('response')
             response['meta'] = kwargs
@@ -122,7 +122,7 @@ class ChromeRemote:
                 if re.match(pattern, response['url']):
                     self._response_queues[pattern].put(response)
 
-        def loadingFailed(**kwargs):
+        def loadingFailed(**kwargs) -> None:
             error_text = kwargs.get('errorText')
             blocked_reason = kwargs.get('blockedReason')
             status_text = ''
@@ -155,7 +155,7 @@ class ChromeRemote:
                     if re.match(pattern, request_url):
                         self._response_queues[pattern].put(response)
 
-        def requestWillBeSent(**kwargs):
+        def requestWillBeSent(**kwargs) -> None:
             request = kwargs.pop('request')
             request['meta'] = kwargs
             request_id = kwargs['requestId']
@@ -181,11 +181,11 @@ class ChromeRemote:
         self._chrome_tab.Log.enable()
         # self._chrome_tab.Fetch.enable()
 
-    def _init_tab_monitor(self):
+    def _init_tab_monitor(self) -> None:
         """Monitor Chrome tab health."""
         tab_detached = False
 
-        def monitor_tab():
+        def monitor_tab() -> None:
             """V8 OOM could crash Chrome's tab and keep websocket functional
             like nothing bad happend, so we better monitor tabs index page
             and check if our tab is still alive."""
@@ -201,12 +201,12 @@ class ChromeRemote:
         self._ping_thread = threading.Thread(target=monitor_tab, daemon=True)
         self._ping_thread.start()
 
-        def get_send_with_reraise():
+        def get_send_with_reraise() -> Callable[..., Any]:
             """Reraise "Tab has been stopped" instead of `UserAbortException` in
             case of tab detach detected."""
             original_send = self._chrome_tab._send
 
-            def wrapped_send(*args, **kwargs):
+            def wrapped_send(*args, **kwargs) -> Any:
                 try:
                     return original_send(*args, **kwargs)
                 except pychrome.UserAbortException:
@@ -348,7 +348,7 @@ class ChromeRemote:
             (function() { this.scrollIntoView({ block: "center",  behavior: "instant" }); this.click(); })
         ''')
 
-    def wait(self, timeout: float = None) -> None:
+    def wait(self, timeout: float | None = None) -> None:
         """Idle for `timeout` seconds."""
         self._chrome_tab.wait(timeout)
 

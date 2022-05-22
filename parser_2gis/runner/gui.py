@@ -8,7 +8,7 @@ if TYPE_CHECKING:
     from ..config import Configuration
 
 
-def run_gui(urls: str, output_path: str, format: str, config: Configuration) -> None:
+def run_gui(urls: list[str], output_path: str, format: str, config: Configuration) -> None:
     setup_cli_logger(config.log)
 
     gui_app(urls, output_path, format, config)

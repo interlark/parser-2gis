@@ -44,6 +44,8 @@ def filtered_rubrics(rubrics: dict[str, Any],
 
 def create_search_widget(column_element: sg.Element, containing_frame: tk.Frame,
                          toplevel_form: sg.Window) -> tk.Widget:
+    """Callback for `custom_widget_hook` that creates and
+    returns Search Widget."""
     search_widget = CustomEntry(column_element.TKColFrame, width=60)
     search_widget.pack(side='top', fill='both', expand=True)
     setup_text_widget(search_widget, toplevel_form.TKroot, menu_clear=False)
@@ -131,7 +133,7 @@ def gui_rubric_selector(is_russian: bool = True) -> dict[str, Any] | None:
     window['-TREE-'].widget.configure(show='tree')
 
     # Perform rubrics search on text changed
-    def perform_rubric_search():
+    def perform_rubric_search() -> None:
         query = search_widget.get()
         window['-TREE-'].filter(query)  # noqa: F821
 

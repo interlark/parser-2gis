@@ -121,7 +121,7 @@ def gui_urls_generator() -> list[str]:
     setup_text_widget(window['-IN_RUBRIC-'].widget, window.TKroot,
                       menu_clear=False, menu_paste=False, menu_cut=False)
 
-    def update_checkbox_layouts(country_name: str):
+    def update_checkbox_layouts(country_name: str) -> None:
         """Bring frame with checkboxes visible that
         belong to `country_name`.
 
@@ -139,7 +139,7 @@ def gui_urls_generator() -> list[str]:
         rubric_input.metadata = None
         rubric_input.update(value='Без рубрики')
 
-    def select_checkboxes(country_name: str, state: bool = True):
+    def select_checkboxes(country_name: str, state: bool = True) -> None:
         """Select all checkboxes that belong to `country_name`.
 
         Args:

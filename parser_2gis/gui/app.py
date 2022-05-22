@@ -186,7 +186,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
 
     # Forbid user to edit output console,
     # block any keys except ctl+c, ←, ↑, →, ↓
-    def log_key_handler(e):
+    def log_key_handler(e) -> str | None:
         if e.char == '\x03' or e.keysym in ('Left', 'Up', 'Right', 'Down'):
             return None
 
@@ -216,18 +216,18 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
     # Parsing thread
     parsing_thread: ParsingThread | None = None
 
-    def parsing_thread_running():
-        return parsing_thread and parsing_thread.is_alive()
+    def parsing_thread_running() -> bool:
+        return parsing_thread is not None and parsing_thread.is_alive()
 
     # Update URL Input element according to `urls` list
-    def update_urls_input():
+    def update_urls_input() -> None:
         urls_length = len(urls) if isinstance(urls, list) else 0
         if urls_length == 0:
             window['-IN_URL-'].update('', disabled=False)  # noqa: F821
         elif urls_length == 1:
             window['-IN_URL-'].update(urls[0], disabled=False)  # noqa: F821
         else:
-            def get_plural():
+            def get_plural() -> str:
                 last_1d = urls_length % 10
                 last_2d = urls_length % 100
                 if 11 <= last_2d <= 19:
