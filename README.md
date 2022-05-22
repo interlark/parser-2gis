@@ -34,9 +34,9 @@ cd parser-2gis
 python -m venv venv
 
 # Windows
-.\venv\Scripts\activate
+.\venv\Scripts\activate.bat
 # Linux, MacOS
-. venv/bin/active.bat
+. venv/bin/activate
 
 # CLI
 pip install .

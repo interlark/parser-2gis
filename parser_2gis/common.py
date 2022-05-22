@@ -3,6 +3,7 @@ from __future__ import annotations
 import functools
 import sys
 import time
+import warnings
 from typing import Any, Callable
 
 from pydantic import ValidationError
@@ -11,7 +12,11 @@ try:
     import PySimpleGUI
     del PySimpleGUI
     GUI_ENABLED = True
-except ImportError:
+except ImportError as e:
+    if e.name != 'PySimpleGUI':
+        # GUI was installed, but failed to load
+        # due to tkinter missing or other dependencies.
+        warnings.warn('Failed to load GUI: %s' % e.msg)
     GUI_ENABLED = False
 
 
