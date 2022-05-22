@@ -1,7 +1,7 @@
 # Parser2GIS
 Парсер сайта [2GIS](https://2gis.ru/) с помощью браузера [Google Chrome](https://google.com/chrome).
 
-![main](assets/screenshots/main_and_settings.png)
+![Screenshot](https://raw.githubusercontent.com/interlark/parser-2gis/main/assets/screenshots/main_and_settings.png)
 
 ## Описание
 Парсер для автоматического сбора базы адресов и контактов предприятий, которые работают на территории
