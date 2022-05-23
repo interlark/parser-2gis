@@ -5,14 +5,14 @@ from .custom_text import CustomText
 
 class TextLineNumbers(tk.Canvas):
     """Numbered Line Widget."""
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.textwidget = None
 
-    def attach(self, textwidget):
+    def attach(self, textwidget: tk.Text) -> None:
         self.textwidget = textwidget
 
-    def redraw(self, *_):
+    def redraw(self) -> None:
         self.delete('all')
 
         i = self.textwidget.index('@0,0')
@@ -30,7 +30,7 @@ class TextLineNumbers(tk.Canvas):
 
 class LineNumberedText(tk.Frame):
     """Combined Numbered Line and Customized Text Widgets."""
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.text = CustomText(self)
 
@@ -51,5 +51,5 @@ class LineNumberedText(tk.Frame):
         self.text.bind('<<Change>>', self._on_change)
         self.text.bind('<Configure>', self._on_change)
 
-    def _on_change(self, event):
+    def _on_change(self, event: tk.Event) -> None:
         self.linenumbers.redraw()

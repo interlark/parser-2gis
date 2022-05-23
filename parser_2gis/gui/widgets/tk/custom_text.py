@@ -1,9 +1,10 @@
 import tkinter as tk
+from typing import Any
 
 
 class CustomText(tk.Text):
-    """Customized Text Widget."""
-    def __init__(self, *args, **kwargs):
+    """Custom text widget that report on internal widget commands."""
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
         # Create a proxy for the underlying widget
@@ -11,9 +12,10 @@ class CustomText(tk.Text):
         self.tk.call('rename', self._w, self._orig)
         self.tk.createcommand(self._w, self._proxy)
 
-    def _proxy(self, *args):
+    def _proxy(self, *args) -> Any:
         # Let the actual widget perform the requested action
         cmd = (self._orig,) + args
+
         try:
             result = self.tk.call(cmd)
         except tk.TclError:

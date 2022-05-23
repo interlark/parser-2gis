@@ -1,13 +1,15 @@
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import tempfile
 from typing import TYPE_CHECKING
 
+from ..common import wait_until_finished
 from ..logger import logger
 from .exceptions import ChromePathNotFound
-from .utils import locate_chrome_path, free_port
+from .utils import free_port, locate_chrome_path
 
 if TYPE_CHECKING:
     from .options import ChromeOptions
@@ -62,13 +64,27 @@ class ChromeBrowser():
         """Remote debugging port."""
         return self._remote_port
 
+    @wait_until_finished(timeout=5, throw_exception=False)
+    def _delete_profile(self) -> bool:
+        """Delete profile.
+
+        Returns:
+            `True` on successful deletion, `False` on failure.
+        """
+        shutil.rmtree(self._profile_path, ignore_errors=True)
+        profile_deleted = not os.path.isdir(self._profile_path)
+        return profile_deleted
+
     def close(self) -> None:
-        """Close browser and remove temporary profile."""
+        """Close browser and delete temporary profile."""
         logger.debug('Завершение работы Chrome Браузера.')
+
+        # Close the browser
         self._proc.terminate()
         self._proc.wait()
 
-        shutil.rmtree(self._profile_path, ignore_errors=True)
+        # Delete temporary profile
+        self._delete_profile()
 
     def __repr__(self) -> str:
         classname = self.__class__.__name__
