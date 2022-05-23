@@ -18,6 +18,9 @@ class ArgumentHelpFormatter(argparse.HelpFormatter):
         self._default_config = Configuration().dict()
 
     def _get_default_value(self, dest: str) -> Any:
+        if dest == 'version':
+            return argparse.SUPPRESS
+
         fileds = dest.split('.')
         value = self._default_config
         try:
@@ -125,7 +128,7 @@ def parse_arguments() -> Tuple[argparse.Namespace, Configuration]:
 
     rest_parser = arg_parser.add_argument_group('Служебные аргументы')
     rest_parser.add_argument('-v', '--version', action='version', version=f'%(prog)s {version}', help='Показать версию программы и выйти')
-    rest_parser.add_argument('-h', '--help', action='help', help='Показать эту справку и выйти.')
+    rest_parser.add_argument('-h', '--help', action='help', help='Показать эту справку и выйти')
 
     args = arg_parser.parse_args()
     config_args = unwrap_dot_dict(vars(args))

@@ -21,6 +21,7 @@ if TYPE_CHECKING:
     from ..config import Configuration
 
 if GUI_ENABLED:
+    import tkinter as tk
     import PySimpleGUI as sg
 
 
@@ -186,7 +187,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
 
     # Forbid user to edit output console,
     # block any keys except ctl+c, ←, ↑, →, ↓
-    def log_key_handler(e) -> str | None:
+    def log_key_handler(e: tk.Event) -> str | None:
         if e.char == '\x03' or e.keysym in ('Left', 'Up', 'Right', 'Down'):
             return None
 

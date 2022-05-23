@@ -95,7 +95,7 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
             widget.tag_add('sel', '1.0', 'end')
 
     def generate_handler(func: Callable, with_break: bool = False) -> Callable:
-        def wrapper(event) -> str | None:
+        def wrapper(event: tk.Event) -> str | None:
             func()
             return 'break' if with_break else None
 
@@ -121,7 +121,7 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
         menu.add_command(label='Очистить', command=clear_text)
 
     # Show menu
-    def show_menu_handler(event):
+    def show_menu_handler(event: tk.Event) -> None:
         """Config menu."""
         is_readonly = widget.cget('state') == 'readonly'
 
@@ -145,7 +145,7 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
     widget.bind(rclick_event_name, show_menu_handler)
 
     # Hide menu
-    menu.bind('<FocusOut>', lambda _: menu.unpost())
+    menu.bind('<FocusOut>', generate_handler(menu.unpost))
 
     # Focus
     if set_focus:
@@ -156,7 +156,7 @@ def ensure_gui_enabled(func: F) -> F:
     """Decorator to be sure GUI is enabled
     before decorated form is run."""
     @functools.wraps(func)
-    def _ensure_gui_enabled(*args, **kwargs):
+    def _ensure_gui_enabled(*args, **kwargs) -> Any:
         assert GUI_ENABLED, 'GUI is not enabled'
         return func(*args, **kwargs)
 

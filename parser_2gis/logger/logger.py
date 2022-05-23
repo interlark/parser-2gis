@@ -22,7 +22,7 @@ _LOGGER_NAME = 'parser-2gis'
 
 
 class QueueHandler(logging.Handler):
-    def __init__(self, log_queue: queue.Queue) -> None:
+    def __init__(self, log_queue: queue.Queue[tuple[str, str]]) -> None:
         super().__init__()
         self._log_queue = log_queue
 
@@ -31,7 +31,8 @@ class QueueHandler(logging.Handler):
         self._log_queue.put(log_message)
 
 
-def setup_gui_logger(log_queue: queue.Queue, options: LogOptions) -> None:
+def setup_gui_logger(log_queue: queue.Queue[tuple[str, str]],
+                     options: LogOptions) -> None:
     """Add queue handler to existing logger so it would
     emmit logs to the specified queue.
 

@@ -9,3 +9,11 @@ class ChromeException(Exception):
 class ChromePathNotFound(ChromeException):
     def __init__(self, msg='Chrome браузер не найден', *args, **kwargs):
         super().__init__(msg, *args, **kwargs)
+
+
+__all__ = [
+    'ChromeUserAbortException',
+    'ChromeRuntimeException',
+    'ChromeException',
+    'ChromePathNotFound',
+]

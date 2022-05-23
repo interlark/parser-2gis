@@ -36,7 +36,7 @@ class WriterOptions(BaseModel):
     csv: CSVOptions = CSVOptions()
 
     @validator('encoding')
-    def encoding_exists(cls, v):
+    def encoding_exists(cls, v: str) -> str:
         """Determine if `encoding` exists."""
         try:
             codecs.lookup(v)

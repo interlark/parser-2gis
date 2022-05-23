@@ -22,7 +22,7 @@ class CSVWriter(FileWriter):
         # For example: phone -> phone_1, phone_2, ..., phone_n
         return {
             'phone': 'Телефон', 'email': 'E-mail',
-            'website': 'Веб сайт', 'instagram': 'Instagram', 'twitter': 'Twitter', 'facebook': 'Facebook',
+            'website': 'Веб-сайт', 'instagram': 'Instagram', 'twitter': 'Twitter', 'facebook': 'Facebook',
             'vkontakte': 'ВКонтакте', 'youtube': 'YouTube', 'skype': 'Skype'
         }
 

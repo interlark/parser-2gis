@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, IO
 
 from ...logger import logger
 
 if TYPE_CHECKING:
     from ..options import WriterOptions
-    from io import TextIOWrapper
 
 
 class FileWriter(ABC):
@@ -21,12 +20,21 @@ class FileWriter(ABC):
         """Write Catalog Item API JSON document retrieved by parser."""
         pass
 
-    def _open_file(self, file_path: str, mode='r') -> TextIOWrapper:
+    def _open_file(self, file_path: str, mode: str = 'r') -> IO[Any]:
         return open(file_path, mode, encoding=self._options.encoding,
                     newline='', errors='replace')
 
-    def _check_catalog_doc(self, catalog_doc: Any, verbose: bool = True):
-        """Check Catalog Item API JSON document for errors."""
+    def _check_catalog_doc(self, catalog_doc: Any, verbose: bool = True) -> bool:
+        """Check Catalog Item API JSON document for errors.
+
+        Args:
+            catalog_doc: Catalog Item API JSON document.
+            verbose: Whether to report about found errors.
+
+        Returns:
+            `True` if document passed all checks.
+            `False` if errors found in document.
+        """
         try:
             assert isinstance(catalog_doc, dict)
 
@@ -47,12 +55,13 @@ class FileWriter(ABC):
             assert len(catalog_doc['result']['items']) > 0
             assert isinstance(catalog_doc['result']['items'][0], dict)
 
-            if len(catalog_doc['result']['items']) > 1:
+            if len(catalog_doc['result']['items']) > 1 and verbose:
                 logger.warning('Сервер вернул больше одного ответа.')
 
             return True
         except (KeyError, AssertionError):
-            logger.error('Сервер ответил неизвестным документом.')
+            if verbose:
+                logger.error('Сервер ответил неизвестным документом.')
             return False
 
     def __enter__(self) -> FileWriter:

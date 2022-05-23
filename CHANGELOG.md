@@ -2,9 +2,14 @@
 
 ## [Невошедшее]
 
+## [0.1.3] - 23-05-2022
+### Испрвлено
+- CSV: Исправлено название колонки `Веб сайт` -> `Веб-сайт`.
+- Usage: Убрана ошибочно влезшая версия конфигурации.
+
 ## [0.1.2] - 22-05-2022
 ### Добавлено
-- Предупреждение при неудачной попытке загрузки GUI
+- Предупреждение при неудачной попытке загрузки GUI.
 
 ## [0.1.1] - 22-05-2022
 ### Исправлено
@@ -15,7 +20,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.2...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/interlark/parser-2gis/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/interlark/parser-2gis/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/interlark/parser-2gis/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/interlark/parser-2gis/releases/tag/v0.1.0
