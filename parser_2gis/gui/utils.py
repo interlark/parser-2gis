@@ -17,6 +17,23 @@ if GUI_ENABLED:
     import PySimpleGUI as sg
 
 
+def generate_event_handler(func: Callable, with_break: bool = False) -> Callable:
+    """Generate event handler out of function.
+
+    Args:
+        func: Function to be wrapped in event handler.
+        with_break: Wheather to stop event propagation.
+
+    Returns:
+        Event handler.
+    """
+    def wrapper(event: tk.Event) -> str | None:
+        func()
+        return 'break' if with_break else None
+
+    return wrapper
+
+
 def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
                       menu_copy: bool = True, menu_paste: bool = True,
                       menu_cut: bool = True, menu_clear: bool = True,
@@ -94,13 +111,6 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
         elif isinstance(widget, tk.Text):
             widget.tag_add('sel', '1.0', 'end')
 
-    def generate_handler(func: Callable, with_break: bool = False) -> Callable:
-        def wrapper(event: tk.Event) -> str | None:
-            func()
-            return 'break' if with_break else None
-
-        return wrapper
-
     # Create menu
     menu = tk.Menu(root, tearoff=False)
 
@@ -111,10 +121,10 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
     if menu_paste:
         menu.add_command(label='Вставить', command=paste_text)
         # Fix paste bahaviour
-        widget.bind('<<Paste>>', generate_handler(paste_text, with_break=True))
+        widget.bind('<<Paste>>', generate_event_handler(paste_text, with_break=True))
 
     # Select all bahaviour
-    widget.bind('<Control-a>', generate_handler(select_all, with_break=True))
+    widget.bind('<Control-a>', generate_event_handler(select_all, with_break=True))
     menu.add_command(label='Выделить всё', command=select_all)
 
     if menu_clear:
@@ -145,7 +155,7 @@ def setup_text_widget(widget: tk.Text | tk.Entry, root: tk.Toplevel, *,
     widget.bind(rclick_event_name, show_menu_handler)
 
     # Hide menu
-    menu.bind('<FocusOut>', generate_handler(menu.unpost))
+    menu.bind('<FocusOut>', generate_event_handler(menu.unpost))
 
     # Focus
     if set_focus:

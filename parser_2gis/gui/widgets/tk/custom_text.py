@@ -19,7 +19,7 @@ class CustomText(tk.Text):
         try:
             result = self.tk.call(cmd)
         except tk.TclError:
-            return ''
+            result = ''
 
         # Generate an event if something was added or deleted,
         # or the cursor position changed.

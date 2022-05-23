@@ -3,6 +3,7 @@ from __future__ import annotations
 import queue
 import threading
 import webbrowser
+from functools import partial
 from typing import TYPE_CHECKING, Tuple
 
 from ..common import GUI_ENABLED, running_linux, running_windows
@@ -15,7 +16,8 @@ from ..writer import get_writer
 from .error_popup import gui_error_popup
 from .settings import gui_settings
 from .urls_editor import gui_urls_editor
-from .utils import ensure_gui_enabled, setup_text_widget
+from .utils import (ensure_gui_enabled, generate_event_handler,
+                    setup_text_widget)
 
 if TYPE_CHECKING:
     from ..config import Configuration
@@ -203,13 +205,16 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
     window['-IMG_LOGO-'].widget.config(cursor='hand2')
 
     # Set config settings button hover/click image
+    def change_settings_image(image_name):
+        window['-BTN_SETTINGS-'].update(image_data=image_data(image_name))  # noqa: F821
+
     window['-BTN_SETTINGS-'].TKButton.bind(
         '<Button>' if running_windows() else '<Enter>',
-        lambda _: window['-BTN_SETTINGS-'].update(image_data=image_data('settings_inverted')))  # noqa: F821
+        generate_event_handler(partial(change_settings_image, 'settings_inverted')))
 
     window['-BTN_SETTINGS-'].TKButton.bind(
         '<ButtonRelease>' if running_windows() else '<Leave>',
-        lambda _: window['-BTN_SETTINGS-'].update(image_data=image_data('settings')))  # noqa: F821
+        generate_event_handler(partial(change_settings_image, 'settings')))
 
     # Move cursor to the end of the URL input
     window['-IN_URL-'].widget.icursor('end')

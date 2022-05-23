@@ -7,7 +7,8 @@ from typing import Any
 from ..common import GUI_ENABLED, running_linux
 from ..paths import data_path, image_data
 from .error_popup import gui_error_popup
-from .utils import ensure_gui_enabled, invoke_widget_hook, setup_text_widget
+from .utils import (ensure_gui_enabled, generate_event_handler,
+                    invoke_widget_hook, setup_text_widget)
 
 if GUI_ENABLED:
     import tkinter as tk
@@ -27,7 +28,7 @@ def filtered_rubrics(rubrics: dict[str, Any],
     Returns:
         Filtered rubric dictionary.
     """
-    # Delete nodes
+    # Filter nodes
     if is_russian:
         # Rubrics for Russia
         rubrics = {k: v for k, v in rubrics.items() if v.get('isRussian', True)}
@@ -137,7 +138,7 @@ def gui_rubric_selector(is_russian: bool = True) -> dict[str, Any] | None:
         query = search_widget.get()
         window['-TREE-'].filter(query)  # noqa: F821
 
-    search_widget.bind('<<Change>>', lambda e: perform_rubric_search())
+    search_widget.bind('<<Change>>', generate_event_handler(perform_rubric_search))
 
     # Return rubric
     ret_rubric = None
