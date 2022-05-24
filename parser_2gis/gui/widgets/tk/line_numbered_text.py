@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import tkinter as tk
 
 from .custom_text import CustomText
@@ -7,7 +9,7 @@ class TextLineNumbers(tk.Canvas):
     """Numbered Line Widget."""
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        self.textwidget = None
+        self.textwidget: tk.Text | None = None
 
     def attach(self, textwidget: tk.Text) -> None:
         self.textwidget = textwidget
@@ -15,6 +17,7 @@ class TextLineNumbers(tk.Canvas):
     def redraw(self) -> None:
         self.delete('all')
 
+        assert self.textwidget, 'Attach textwidget first'
         i = self.textwidget.index('@0,0')
         while True:
             bbox = self.textwidget.dlineinfo(i)
@@ -38,7 +41,7 @@ class LineNumberedText(tk.Frame):
         self.hsb = tk.Scrollbar(self, orient='horizontal', command=self.text.xview)
         self.text.configure(yscrollcommand=self.vsb.set)
         self.text.configure(xscrollcommand=self.hsb.set)
-        self.text.configure(wrap='none', undo='true')
+        self.text.configure(wrap='none', undo=True)
 
         self.linenumbers = TextLineNumbers(self, width=34)
         self.linenumbers.attach(self.text)

@@ -205,7 +205,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
     window['-IMG_LOGO-'].widget.config(cursor='hand2')
 
     # Set config settings button hover/click image
-    def change_settings_image(image_name):
+    def change_settings_image(image_name: str) -> None:
         window['-BTN_SETTINGS-'].update(image_data=image_data(image_name))  # noqa: F821
 
     window['-BTN_SETTINGS-'].TKButton.bind(

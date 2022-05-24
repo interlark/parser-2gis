@@ -23,16 +23,16 @@ class DOMTree:
 
     def search(self, predicate: Callable[[DOMNode], bool]) -> list[DOMNode]:
         """Search nodes in the DOM Tree using `predicate`."""
-        def _search(node, found_nodes=[]):
+        def _search(node: DOMNode, found_nodes: list[DOMNode]) -> None:
             if predicate(node):
                 found_nodes.append(node)
 
             for child in node.children:
                 _search(child, found_nodes)
 
-            return found_nodes
-
-        return _search(self.root)
+        found_nodes: list[DOMNode] = []
+        _search(self.root, found_nodes)
+        return found_nodes
 
     def __repr__(self) -> str:
         classname = self.__class__.__name__

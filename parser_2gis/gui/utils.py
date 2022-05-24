@@ -22,7 +22,7 @@ def generate_event_handler(func: Callable, with_break: bool = False) -> Callable
 
     Args:
         func: Function to be wrapped in event handler.
-        with_break: Wheather to stop event propagation.
+        with_break: Whether to stop event propagation.
 
     Returns:
         Event handler.

@@ -5,7 +5,7 @@ from typing import Any
 import PySimpleGUI as sg
 
 
-class RubricsTree(sg.Tree):
+class RubricsTree(sg.Tree):  # type: ignore
     """Rubrics tree.
 
     Args:
@@ -61,7 +61,7 @@ class RubricsTree(sg.Tree):
         Args:
             expand: Whether to expand or collapse the tree.
         """
-        def recursive_expand(parent: str = ''):
+        def recursive_expand(parent: str = '') -> None:
             self.widget.item(parent, open=expand)
             for child in self.widget.get_children(parent):
                 recursive_expand(child)

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import tkinter as tk
 from typing import Any
 
@@ -8,9 +10,10 @@ class CustomEntry(tk.Entry):
         super().__init__(*args, **kwargs)
 
         # Create a proxy for the underlying widget
-        self._orig = self._w + '_orig'
-        self.tk.call('rename', self._w, self._orig)
-        self.tk.createcommand(self._w, self._proxy)
+        widget_name = self._w  # type: ignore[attr-defined]
+        self._orig = widget_name + '_orig'
+        self.tk.call('rename', widget_name, self._orig)
+        self.tk.createcommand(widget_name, self._proxy)
 
     def _proxy(self, command: Any, *args) -> Any:
         # Let the actual widget perform the requested action
