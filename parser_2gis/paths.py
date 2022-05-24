@@ -8,7 +8,7 @@ import pathlib
 from .common import running_mac, running_windows
 
 
-def data_path(filename: str | None = None) -> pathlib.Path:
+def data_path() -> pathlib.Path:
     """Get package's data path."""
     if '_MEIPASS2' in os.environ:
         here = os.environ['_MEIPASS2']
@@ -16,13 +16,10 @@ def data_path(filename: str | None = None) -> pathlib.Path:
         here = os.path.dirname(os.path.abspath(__file__))
 
     path = os.path.join(here, 'data')
-    if filename:
-        path = os.path.join(path, filename)
-
     return pathlib.Path(path)
 
 
-def user_path(filename: str | None = None, is_config: bool = True) -> pathlib.Path:
+def user_path(is_config: bool = True) -> pathlib.Path:
     """Get user path depending on running OS.
 
     Note:
@@ -47,9 +44,6 @@ def user_path(filename: str | None = None, is_config: bool = True) -> pathlib.Pa
             path = os.getenv('XDG_DATA_HOME', os.path.expanduser("~/.local/share"))
 
     path = os.path.join(path, 'parser-2gis')
-    if filename:
-        path = os.path.join(path, filename)
-
     return pathlib.Path(path)
 
 
@@ -65,11 +59,11 @@ def image_path(basename: str, ext: str | None = None) -> str:
     Returns:
         Image path.
     """
-    images_dir = os.path.join(data_path(), 'images')
+    images_dir = data_path() / 'images'
     for img_name in os.listdir(images_dir):
         img_basename, img_ext = os.path.splitext(img_name)
         if img_basename == basename and (ext is None or img_ext == f'.{ext}'):
-            return os.path.abspath(os.path.join(images_dir, img_name))
+            return os.path.abspath(images_dir / img_name)
 
     raise FileNotFoundError(f'Изображение {basename} не найдено')
 

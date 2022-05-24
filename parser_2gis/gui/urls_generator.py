@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import os
 
 from ..common import GUI_ENABLED, running_linux
 from ..paths import data_path
@@ -23,15 +22,15 @@ def gui_urls_generator() -> list[str]:
         List of generated URLs.
     """
     # Locate and load cities list
-    cities_path = os.path.join(data_path(), 'cities.json')
-    if not os.path.isfile(cities_path):
+    cities_path = data_path() / 'cities.json'
+    if not cities_path.is_file():
         raise FileNotFoundError(f'Файл {cities_path} не найден')
 
     try:
         with open(cities_path, 'r', encoding='utf-8') as f:
             cities = json.load(f)
     except json.JSONDecodeError as e:
-        gui_error_popup(f'Файл {os.path.basename(cities_path)} повреждён:\n{e}')
+        gui_error_popup(f'Файл {cities_path.name} повреждён:\n{e}')
         return []
 
     # Countries available

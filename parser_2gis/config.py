@@ -81,7 +81,7 @@ class Configuration(BaseModel):
             Configuration.
         """
         if not config_path:
-            config_path = user_path('parser-2gis.config')
+            config_path = user_path() / 'parser-2gis.config'
 
         try:
             if not config_path.is_file():

@@ -50,6 +50,6 @@ with ChromeRemote(chrome_options, [_REGIONS_LIST_RESPONSE]) as chrome_remote:
         })
 
     cities = sorted(cities, key=lambda x: x['domain'])
-    cities_path = parser_2gis.paths.data_path('cities.json')
+    cities_path = parser_2gis.paths.data_path() / 'cities.json'
     with open(cities_path, 'w', encoding='utf-8') as f:
         json.dump(cities, f, ensure_ascii=False, indent=4)

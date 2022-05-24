@@ -42,6 +42,6 @@ with ChromeRemote(chrome_options, [_REGIONS_LIST_RESPONSE]) as chrome_remote:
     assert any(x['label'] == 'Без рубрики' for x in rubrics.values())
 
     # Save rubrics list
-    rubrics_path = parser_2gis.paths.data_path('rubrics.json')
+    rubrics_path = parser_2gis.paths.data_path() / 'rubrics.json'
     with open(rubrics_path, 'w', encoding='utf-8') as f:
         json.dump(rubrics, f, ensure_ascii=False, indent=4)

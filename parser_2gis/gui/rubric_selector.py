@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import os
 from typing import Any
 
 from ..common import GUI_ENABLED, running_linux
@@ -72,15 +71,15 @@ def gui_rubric_selector(is_russian: bool = True) -> dict[str, Any] | None:
         or `None` if nothing selected.
     """
     # Locate and load rubrics list
-    rubric_path = os.path.join(data_path(), 'rubrics.json')
-    if not os.path.isfile(rubric_path):
+    rubric_path = data_path() / 'rubrics.json'
+    if not rubric_path.is_file():
         raise FileNotFoundError(f'Файл {rubric_path} не найден')
 
     try:
         with open(rubric_path, 'r', encoding='utf-8') as f:
             rubrics = filtered_rubrics(json.load(f), is_russian=is_russian)
     except json.JSONDecodeError as e:
-        gui_error_popup(f'Файл {os.path.basename(rubric_path)} повреждён:\n{e}')
+        gui_error_popup(f'Файл {rubric_path.name} повреждён:\n{e}')
         return None
 
     # Window layout
