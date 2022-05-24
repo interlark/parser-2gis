@@ -94,6 +94,7 @@ if __name__ == '__main__':
             'pychrome==0.2.3',
             'pydantic>=1.9.0',
             'psutil>=5.4.8',
+            'requests>=2.13.0',
         ],
         extras_require={
             'gui': [
