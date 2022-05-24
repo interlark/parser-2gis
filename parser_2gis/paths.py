@@ -41,7 +41,7 @@ def user_path(is_config: bool = True) -> pathlib.Path:
         if is_config:
             path = os.getenv('XDG_CONFIG_HOME', os.path.expanduser('~/.config'))
         else:
-            path = os.getenv('XDG_DATA_HOME', os.path.expanduser("~/.local/share"))
+            path = os.getenv('XDG_DATA_HOME', os.path.expanduser('~/.local/share'))
 
     path = os.path.join(path, 'parser-2gis')
     return pathlib.Path(path)

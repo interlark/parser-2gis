@@ -14,7 +14,7 @@ from websocket import WebSocketException
 
 from ..common import wait_until_finished
 from .browser import ChromeBrowser
-from .dom import DOMNode, DOMTree
+from .dom import DOMNode
 from .exceptions import ChromeException
 
 if TYPE_CHECKING:
@@ -287,17 +287,17 @@ class ChromeRemote:
         with self._requests_lock:
             return [*self._requests.values()]
 
-    def get_document(self, full: bool = True) -> DOMTree:
+    def get_document(self, full: bool = True) -> DOMNode:
         """Get Document DOM tree.
 
         Args:
             full: Flag wheather to return full DOM or only root.
 
         Returns:
-            Dom tree.
+            Root DOM node.
         """
         tree = self._chrome_tab.DOM.getDocument(depth=-1 if full else 1)
-        return DOMTree(tree)
+        return DOMNode(**tree['root'])
 
     def add_start_script(self, source: str) -> None:
         """Add script that evaluates on every new page.
@@ -342,7 +342,7 @@ class ChromeRemote:
         Args:
             dom_node: DOMNode element.
         """
-        resolved_node = self._chrome_tab.DOM.resolveNode(backendNodeId=dom_node.backend_node_id)
+        resolved_node = self._chrome_tab.DOM.resolveNode(backendNodeId=dom_node.backend_id)
         object_id = resolved_node['object']['objectId']
         self._chrome_tab.Runtime.callFunctionOn(objectId=object_id, functionDeclaration='''
             (function() { this.scrollIntoView({ block: "center",  behavior: "instant" }); this.click(); })
