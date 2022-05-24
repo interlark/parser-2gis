@@ -2,13 +2,13 @@ import distutils.cmd
 import pathlib
 import re
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
+
+PACKAGE_NAME = 'parser_2gis'
 ROOT_DIR = pathlib.Path(__file__).parent
-PACKAGE_DIR = 'parser_2gis'
-VERSION_PATH = ROOT_DIR / PACKAGE_DIR / 'version.py'
+VERSION_PATH = ROOT_DIR / PACKAGE_NAME / 'version.py'
 README_PATH = ROOT_DIR / 'README.md'
-
 
 long_description = README_PATH.read_text(encoding='utf-8')
 long_description_content_type = 'text/markdown'
@@ -85,7 +85,7 @@ if __name__ == '__main__':
         long_description_content_type=long_description_content_type,
         author='Andy Trofimov',
         author_email='interlark@gmail.com',
-        packages=find_packages(),
+        packages=[PACKAGE_NAME],
         include_package_data=True,
         python_requires='>=3.7',
         keywords='parser scraper 2gis',
