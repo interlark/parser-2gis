@@ -1,22 +1,20 @@
 import distutils.cmd
-import os
+import pathlib
 import re
-import sys
 
 from setuptools import find_packages, setup
 
+ROOT_DIR = pathlib.Path(__file__).parent
+PACKAGE_DIR = 'parser_2gis'
+VERSION_PATH = ROOT_DIR / PACKAGE_DIR / 'version.py'
+README_PATH = ROOT_DIR / 'README.md'
 
-def read_file(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
-        return f.read()
 
-
-here = os.path.abspath(os.path.dirname(__file__))
-long_description = read_file(os.path.join(here, 'README.md'))
+long_description = README_PATH.read_text(encoding='utf-8')
 long_description_content_type = 'text/markdown'
 
-version_content = read_file(os.path.join(here, 'parser_2gis', 'version.py'))
-match = re.search(r"^version\s*=\s*'(?P<version>.+?)'", version_content, re.M)
+match = re.search(r'^version\s*=\s*[\'"](?P<version>.+?)[\'"]',
+                  VERSION_PATH.read_text(encoding='utf-8'), re.M)
 assert match
 version = match.group('version')
 
@@ -33,8 +31,10 @@ class BuildStandaloneCommand(distutils.cmd.Command):
         pass
 
     def run(self):
-        import subprocess
+        import os
         import shutil
+        import subprocess
+        import sys
 
         try:
             # Target filename
@@ -69,9 +69,9 @@ class BuildStandaloneCommand(distutils.cmd.Command):
             subprocess.check_call(build_cmd)
         finally:
             # Cleanup
-            shutil.rmtree(os.path.join(here, 'build'), ignore_errors=True)
+            shutil.rmtree(ROOT_DIR / 'build', ignore_errors=True)
             try:
-                os.remove(os.path.join(here, f'{dist_filename}.spec'))
+                os.remove(ROOT_DIR / f'{dist_filename}.spec')
             except FileNotFoundError:
                 pass
 
