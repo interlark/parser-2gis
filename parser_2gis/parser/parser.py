@@ -232,7 +232,7 @@ class Parser2GIS:
     def __enter__(self) -> Parser2GIS:
         return self
 
-    def __exit__(self, *args, **kwargs) -> None:
+    def __exit__(self, *exc_info) -> None:
         self.close()
 
     def __repr__(self) -> str:

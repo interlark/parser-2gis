@@ -372,7 +372,7 @@ class ChromeRemote:
         self.start()
         return self
 
-    def __exit__(self, *args, **kwargs) -> None:
+    def __exit__(self, *exc_info) -> None:
         self.stop()
 
     def __repr__(self) -> str:

@@ -29,7 +29,10 @@ def run_cli(urls: str, output_path: str, format: str, config: Configuration) -> 
                 logger.info(f'Парсинг ссылки {url}')
                 with Parser2GIS(chrome_options=config.chrome,
                                 parser_options=config.parser) as parser:
-                    parser.parse_url(url, writer)
+                    try:
+                        parser.parse_url(url, writer)
+                    finally:
+                        logger.info('Парсинг ссылки завершён.')
     except (KeyboardInterrupt, ChromeUserAbortException):
         logger.error('Работа парсера прервана пользователем.')
     except Exception as e:
@@ -38,4 +41,4 @@ def run_cli(urls: str, output_path: str, format: str, config: Configuration) -> 
         else:
             logger.error('Ошибка во время работы парсера.', exc_info=True)
     finally:
-        logger.info('Парсинг завершен.')
+        logger.info('Парсинг завершён.')

@@ -68,5 +68,5 @@ class FileWriter(ABC):
         self._file = self._open_file(self._file_path, 'w')
         return self
 
-    def __exit__(self, *args, **kwargs) -> None:
+    def __exit__(self, *exc_info) -> None:
         self._file.close()

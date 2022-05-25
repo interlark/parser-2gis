@@ -70,8 +70,8 @@ class CSVWriter(FileWriter):
         self._wrote_count = 0
         return self
 
-    def __exit__(self, *args, **kwargs) -> None:
-        super().__exit__(*args, **kwargs)
+    def __exit__(self, *exc_info) -> None:
+        super().__exit__(*exc_info)
         if self._options.csv.remove_empty_columns:
             logger.info('Удаление пустых колонок CSV.')
             self._remove_empty_columns()

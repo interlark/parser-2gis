@@ -16,11 +16,11 @@ class JSONWriter(FileWriter):
         self._file.write('[')
         return self
 
-    def __exit__(self, *args, **kwargs) -> None:
+    def __exit__(self, *exc_info) -> None:
         if self._wrote_count > 0:
             self._file.write(os.linesep)
         self._file.write(']')
-        super().__exit__(*args, **kwargs)
+        super().__exit__(*exc_info)
 
     def _writedoc(self, catalog_doc: Any) -> None:
         """Write a `catalog_doc` into JSON document."""

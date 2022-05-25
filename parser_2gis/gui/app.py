@@ -79,7 +79,10 @@ class ParsingThread(threading.Thread):
                                               parser_options=self._config.parser)
                     if not self._stopped:
                         logger.info(f'Парсинг ссылки {url}')
-                        self._parser.parse_url(url, writer)
+                        try:
+                            self._parser.parse_url(url, writer)
+                        finally:
+                            logger.info('Парсинг ссылки завершён.')
                     else:
                         break
 
@@ -94,7 +97,7 @@ class ParsingThread(threading.Thread):
                     logger.error('Ошибка во время работы парсера.', exc_info=True)
         finally:
             self._stop_parser()
-            logger.info('Парсинг завершен.')
+            logger.info('Парсинг завершён.')
 
 
 @ensure_gui_enabled
