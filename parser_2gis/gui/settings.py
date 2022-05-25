@@ -123,7 +123,7 @@ def gui_settings(config: Configuration) -> None:
         [
             sg.Frame('CSV', expand_x=True, pad=((5, 5), (5, 10)), layout=[
                 [
-                    sg.Checkbox('Добавить рубрики', pad=((0, 10), (5, 0)), key='-WRITER.CSV.ADD_RUBRICS-',
+                    sg.Checkbox('Добавить "Рубрики"', pad=((0, 10), (5, 0)), key='-WRITER.CSV.ADD_RUBRICS-',
                                 tooltip='Добавить колонку "Рубрики"',
                                 default=config.writer.csv.add_rubrics,
                                 checkbox_color=sg.theme_input_background_color(), enable_events=True),

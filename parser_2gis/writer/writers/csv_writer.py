@@ -33,6 +33,7 @@ class CSVWriter(FileWriter):
             'address': 'Адрес', 'address_comment': 'Комментарий к адресу',
             'postcode': 'Почтовый индекс', 'living_area': 'Микрорайон', 'district': 'Район', 'city': 'Город',
             'district_area': 'Округ', 'region': 'Регион', 'country': 'Страна', 'schedule': 'Часы работы',
+            'timezone': 'Часовой пояс',
         }
 
         # Expand complex mapping
@@ -200,6 +201,10 @@ class CSVWriter(FileWriter):
         # Post code
         if catalog_item.address:
             data['postcode'] = catalog_item.address.postcode
+
+        # Timezone
+        if catalog_item.timezone is not None:
+            data['timezone'] = catalog_item.timezone
 
         # Administrative location details
         for div in catalog_item.adm_div:
