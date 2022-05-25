@@ -2,6 +2,13 @@
 
 ## [Невошедшее]
 
+## [0.1.5] - 25-05-2022
+### Испрвлено
+- Исправлен баг с редкой ошибкой чтения ответа сервера при парсинге CSV.
+
+### Добавлено
+- Колонка "Часовой пояс" в CSV.
+
 ## [0.1.4] - 24-05-2022
 ### Испрвлено
 - Исправлен баг с неполным удалением временного профиля браузера.
@@ -24,7 +31,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.4...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/interlark/parser-2gis/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/interlark/parser-2gis/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/interlark/parser-2gis/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/interlark/parser-2gis/compare/v0.1.1...v0.1.2
