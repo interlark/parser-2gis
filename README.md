@@ -1,5 +1,7 @@
 <p align="center">
-  <img alt="Logo" width="128" src="https://user-images.githubusercontent.com/20641837/174094285-6e32eb04-7feb-4a60-bddf-5a0fde5dba4d.png"/>
+  <a href="#">
+    <img alt="Logo" width="128" src="https://user-images.githubusercontent.com/20641837/174094285-6e32eb04-7feb-4a60-bddf-5a0fde5dba4d.png"/>
+  </a>
 </p>
 <h1 align="center">Parser2GIS</h1>
 
