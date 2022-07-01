@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import base64
-import json
 import queue
 import re
 import threading
@@ -269,7 +268,7 @@ class ChromeRemote:
             if response_data['base64Encoded']:
                 response_data['body'] = base64.b64decode(response_data['body']).decode('utf-8')
 
-            response_body = json.loads(response_data['body'])
+            response_body = response_data['body']
             response['body'] = response_body
             return response_body
         except pychrome.CallMethodException:
