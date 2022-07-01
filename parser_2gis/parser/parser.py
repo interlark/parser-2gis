@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import json
 import re
 import urllib.parse
 from typing import TYPE_CHECKING
@@ -198,12 +199,18 @@ class Parser2GIS:
                 # Get response body data
                 if resp and resp['status'] >= 0:
                     data = self._chrome_remote.get_response_body(resp, timeout=10) if resp else None
-                else:
-                    data = None
 
-                if data:
+                    try:
+                        doc = json.loads(data)
+                    except json.JSONDecodeError:
+                        logger.error('Сервер вернул некорректный JSON документ: "%s", пропуск позиции.', data)
+                        doc = None
+                else:
+                    doc = None
+
+                if doc:
                     # Write API document into a file
-                    writer.write(data)
+                    writer.write(doc)
                     collected_records += 1
                 else:
                     logger.error('Данные не получены, пропуск позиции.')

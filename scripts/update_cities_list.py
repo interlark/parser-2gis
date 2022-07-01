@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Download cities info for following countries:
-# ae, az, bh, by, cl, cy, cz, eg, it, kg, kz, om, qa, ru, sa, ua, uz
+# ae, az, bh, by, cl, cy, cz, eg, it, kg, kw, kz, om, qa, ru, sa, ua, uz
 
 import json
 import os
@@ -32,7 +32,13 @@ chrome_options = ChromeOptions(headless=True)
 with ChromeRemote(chrome_options, [_REGIONS_LIST_RESPONSE]) as chrome_remote:
     chrome_remote.navigate('https://data.2gis.com')
     response = chrome_remote.wait_response(_REGIONS_LIST_RESPONSE)
-    doc = chrome_remote.get_response_body(response)
+    data = chrome_remote.get_response_body(response)
+
+    try:
+        doc = json.loads(data)
+    except json.JSONDecodeError:
+        print('Returned invalid JSON document!', file=sys.stderr)
+        exit(1)
 
     if not doc:
         print('No response, bail!', file=sys.stderr)
