@@ -1,9 +1,11 @@
 # История изменений
 
 ## [Невошедшее]
+
+## [0.1.6] - 03-07-2022
 ### Исправлено
 - Исправлен релиз под Linux.
-- Пропуск некорректных ответов сервера (JSON expected).
+- Пропуск [некорректных ответов](https://github.com/interlark/parser-2gis/issues/4#issuecomment-1172172691) сервера (JSON expected).
 
 ### Добавлено
 - Новые страны: *Кувейт*.
@@ -38,7 +40,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.5...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.6...HEAD
+[0.1.6]: https://github.com/interlark/parser-2gis/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/interlark/parser-2gis/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/interlark/parser-2gis/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/interlark/parser-2gis/compare/v0.1.2...v0.1.3
