@@ -10,11 +10,11 @@ from .runner import AbstractRunner
 class CLIRunner(AbstractRunner):
     """CLI runner.
 
-        Args:
-            urls: 2GIS URLs with result items to be collected.
-            output_path: Path to the result file.
-            format: `csv` or `json` format.
-            config: Configuration.
+    Args:
+        urls: 2GIS URLs with result items to be collected.
+        output_path: Path to the result file.
+        format: `csv` or `json` format.
+        config: Configuration.
     """
     def start(self):
         logger.info('Парсинг запущен.')
