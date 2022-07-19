@@ -96,7 +96,7 @@ jobs:
         name: Parser2GIS ${{ steps.changelog_reader.outputs.version }}
         body: ${{ steps.changelog_reader.outputs.changes }}
         prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
-        draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
+        draft: true
         artifacts: "dist-*/*"
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}

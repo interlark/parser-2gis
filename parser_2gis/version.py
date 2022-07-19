@@ -1,4 +1,4 @@
 """Version info."""
 
-version = '0.1.6'
+version = '0.1.7'
 config_version = '0.1'

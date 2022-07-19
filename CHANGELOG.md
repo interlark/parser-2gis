@@ -2,6 +2,14 @@
 
 ## [Невошедшее]
 
+## [0.1.7] - 19-07-2022
+### Исправлено
+- Возможная [ошибка](https://github.com/interlark/parser-2gis/issues/9) во время получения новго ключа авторизации.
+- [Баг](https://github.com/interlark/parser-2gis/issues/7) связаный с остановкой парсера и не переходу к следующей ссылке при возникновении ошибки.
+
+### Добавлено
+- Новые рубрики: *Прокат компьютеров / ноутбуков, Буккроссинг, Пляжные принадлежности, Администрация города / посёлка / села*.
+
 ## [0.1.6] - 03-07-2022
 ### Исправлено
 - Исправлен релиз под Linux.
@@ -40,7 +48,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.6...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.7...HEAD
+[0.1.7]: https://github.com/interlark/parser-2gis/compare/v0.1.5...v0.1.6
 [0.1.6]: https://github.com/interlark/parser-2gis/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/interlark/parser-2gis/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/interlark/parser-2gis/compare/v0.1.3...v0.1.4
