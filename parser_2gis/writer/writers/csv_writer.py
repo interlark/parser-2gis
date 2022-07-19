@@ -228,6 +228,8 @@ class CSVWriter(FileWriter):
                 """
                 contacts = [x for x in contact_group.contacts if x.type == contact_type]
                 for i, contact in enumerate(contacts, 1):
+                    contact_value = None
+
                     for field in priority_fields:
                         if hasattr(contact, field):
                             contact_value = getattr(contact, field)

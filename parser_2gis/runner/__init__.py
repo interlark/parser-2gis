@@ -1,7 +1,7 @@
-from .cli import run_cli
-from .gui import run_gui
+from .cli import CLIRunner
+from .gui import GUIRunner
 
 __all__ = [
-    'run_cli',
-    'run_gui',
+    'CLIRunner',
+    'GUIRunner',
 ]

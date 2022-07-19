@@ -7,8 +7,9 @@ import pydantic
 
 from .common import GUI_ENABLED, report_from_validation_error, unwrap_dot_dict
 from .config import Configuration
-from .runner import run_cli, run_gui
 from .version import version
+from .cli import cli_app
+from .gui import gui_app
 
 
 class ArgumentHelpFormatter(argparse.HelpFormatter):
@@ -159,7 +160,10 @@ def main() -> None:
         # Load user config and merge it with one created by command line arguments.
         user_config = Configuration.load_config(auto_create=True)
         user_config.merge_with(command_line_config)
-
-        run_gui(args.url, args.output_path, args.format, user_config)
+        config = user_config
+        app = gui_app
     else:
-        run_cli(args.url, args.output_path, args.format, command_line_config)
+        config = command_line_config
+        app = cli_app
+
+    app(args.url, args.output_path, args.format, config)

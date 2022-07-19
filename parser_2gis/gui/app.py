@@ -1,18 +1,15 @@
 from __future__ import annotations
 
 import queue
-import threading
 import webbrowser
 from functools import partial
 from typing import TYPE_CHECKING
 
 from ..common import GUI_ENABLED, running_linux, running_windows
-from ..exceptions import ChromeRuntimeException, ChromeUserAbortException
-from ..logger import logger, setup_gui_logger
-from ..parser import Parser2GIS
+from ..logger import logger, setup_cli_logger, setup_gui_logger
 from ..paths import image_data, image_path
+from ..runner import GUIRunner
 from ..version import version
-from ..writer import get_writer
 from .error_popup import gui_error_popup
 from .settings import gui_settings
 from .urls_editor import gui_urls_editor
@@ -24,77 +21,8 @@ if TYPE_CHECKING:
 
 if GUI_ENABLED:
     import tkinter as tk
+
     import PySimpleGUI as sg
-
-
-class ParsingThread(threading.Thread):
-    """Parsing thread.
-
-    Args:
-        urls: 2GIS URLs with result items to be collected.
-        output_path: Path to the result file.
-        format: `csv` or `json` format.
-        config: Configuration.
-    """
-    def __init__(self, urls: list[str], output_path: str, format: str,
-                 config: Configuration, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-        self._urls = urls
-        self._output_path = output_path
-        self._format = format
-        self._config = config
-        self._parser: Parser2GIS | None = None
-        self._lock = threading.Lock()
-
-    def start(self) -> None:
-        """Start thread."""
-        self._cancelled = False
-        logger.info('Парсинг запущен.')
-        super().start()
-
-    def stop(self) -> None:
-        """Stop thread."""
-        if not self._started.is_set():  # type: ignore
-            raise RuntimeError('start() is not called')
-
-        if self._cancelled:
-            return  # We can stop the thread only once
-
-        self._cancelled = True
-        self._stop_parser()
-
-    def _stop_parser(self) -> None:
-        """Close parser if it's been opened."""
-        with self._lock:
-            if self._parser:
-                self._parser.close()
-                self._parser = None
-
-    def run(self) -> None:
-        """Thread's activity."""
-        with get_writer(self._output_path, self._format, self._config.writer) as writer:
-            for url in self._urls:
-                try:
-                    logger.info(f'Парсинг ссылки {url}')
-                    self._parser = Parser2GIS(chrome_options=self._config.chrome,
-                                              parser_options=self._config.parser)
-                    if not self._cancelled:
-                        self._parser.parse_url(url, writer)
-                except Exception as e:
-                    if not self._cancelled:  # Don't catch intended exceptions caused by stopping parser
-                        if isinstance(e, ChromeRuntimeException) and str(e) == 'Tab has been stopped':
-                            logger.error('Вкладка браузера была закрыта.')
-                        elif isinstance(e, ChromeUserAbortException):
-                            logger.error('Работа парсера прервана пользователем.')
-                        else:
-                            logger.error('Ошибка во время работы парсера.', exc_info=True)
-                finally:
-                    logger.info('Парсинг ссылки завершён.')
-                    self._stop_parser()
-                    if self._cancelled:
-                        break
-
-        logger.info('Парсинг завершён.')
 
 
 @ensure_gui_enabled
@@ -112,6 +40,9 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
 
     # Set icon
     sg.set_global_icon(image_data('icon', 'png'))
+
+    # Setup main CLI logger
+    setup_cli_logger(config.log)
 
     # Result format
     default_result_format = format if format else 'csv'
@@ -220,7 +151,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
     window['-IN_URL-'].widget.icursor('end')
 
     # Parsing thread
-    parsing_thread: ParsingThread | None = None
+    parsing_thread: GUIRunner | None = None
 
     def parsing_thread_running() -> bool:
         return parsing_thread is not None and parsing_thread.is_alive()
@@ -325,7 +256,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
 
             # Run parser
             if not parsing_thread_running():
-                parsing_thread = ParsingThread(urls, values['-OUTPUT_PATH-'], values['-FILE_FORMAT-'], config)
+                parsing_thread = GUIRunner(urls, values['-OUTPUT_PATH-'], values['-FILE_FORMAT-'], config)
                 parsing_thread.start()
 
                 # Activate stop button if it's been disabled

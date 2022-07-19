@@ -24,8 +24,9 @@ class JSONWriter(FileWriter):
 
     def _writedoc(self, catalog_doc: Any) -> None:
         """Write a `catalog_doc` into JSON document."""
+        item = catalog_doc['result']['items'][0]
+
         if self._options.verbose:
-            item = catalog_doc['result']['items'][0]
             try:
                 name = item['name_ex']['primary']
             except KeyError:
