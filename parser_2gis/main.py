@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import argparse
-from typing import Any, Tuple
+from typing import Any
 
 import pydantic
 
@@ -77,7 +77,7 @@ def patch_argparse_translations() -> None:
     argparse.ArgumentError.__str__ = argument_error__str__  # type: ignore
 
 
-def parse_arguments() -> Tuple[argparse.Namespace, Configuration]:
+def parse_arguments() -> tuple[argparse.Namespace, Configuration]:
     """Parse arguments depending on whether we got GUI support or not.
 
     Returns:

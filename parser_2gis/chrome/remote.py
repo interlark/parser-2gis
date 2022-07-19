@@ -255,11 +255,11 @@ class ChromeRemote:
             self._requests = {}
 
     @wait_until_finished(timeout=15, throw_exception=False)
-    def get_response_body(self, response: Response) -> Response:
-        """Get and set response body.
+    def get_response_body(self, response: Response) -> str:
+        """Get response body.
 
         Args:
-            response: Response without body.
+            response: Response.
         """
         try:
             request_id = response['meta']['requestId']
@@ -273,7 +273,7 @@ class ChromeRemote:
             return response_body
         except pychrome.CallMethodException:
             # Nothing, response body not found
-            return {}
+            return ''
 
     @wait_until_finished(timeout=None, throw_exception=False)
     def get_responses(self) -> list[Response]:

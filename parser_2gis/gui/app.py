@@ -4,7 +4,7 @@ import queue
 import threading
 import webbrowser
 from functools import partial
-from typing import TYPE_CHECKING, Tuple
+from typing import TYPE_CHECKING
 
 from ..common import GUI_ENABLED, running_linux, running_windows
 from ..exceptions import ChromeRuntimeException, ChromeUserAbortException
@@ -48,7 +48,7 @@ class ParsingThread(threading.Thread):
 
     def start(self) -> None:
         """Start thread."""
-        self._stopped = False
+        self._cancelled = False
         logger.info('Парсинг запущен.')
         super().start()
 
@@ -57,14 +57,14 @@ class ParsingThread(threading.Thread):
         if not self._started.is_set():  # type: ignore
             raise RuntimeError('start() is not called')
 
-        if self._stopped:
+        if self._cancelled:
             return  # We can stop the thread only once
 
-        self._stopped = True
+        self._cancelled = True
         self._stop_parser()
 
     def _stop_parser(self) -> None:
-        """Close parser if it's been open."""
+        """Close parser if it's been opened."""
         with self._lock:
             if self._parser:
                 self._parser.close()
@@ -72,32 +72,29 @@ class ParsingThread(threading.Thread):
 
     def run(self) -> None:
         """Thread's activity."""
-        try:
-            with get_writer(self._output_path, self._format, self._config.writer) as writer:
-                for url in self._urls:
+        with get_writer(self._output_path, self._format, self._config.writer) as writer:
+            for url in self._urls:
+                try:
+                    logger.info(f'Парсинг ссылки {url}')
                     self._parser = Parser2GIS(chrome_options=self._config.chrome,
                                               parser_options=self._config.parser)
-                    if not self._stopped:
-                        logger.info(f'Парсинг ссылки {url}')
-                        try:
-                            self._parser.parse_url(url, writer)
-                        finally:
-                            logger.info('Парсинг ссылки завершён.')
-                    else:
+                    if not self._cancelled:
+                        self._parser.parse_url(url, writer)
+                except Exception as e:
+                    if not self._cancelled:  # Don't catch intended exceptions caused by stopping parser
+                        if isinstance(e, ChromeRuntimeException) and str(e) == 'Tab has been stopped':
+                            logger.error('Вкладка браузера была закрыта.')
+                        elif isinstance(e, ChromeUserAbortException):
+                            logger.error('Работа парсера прервана пользователем.')
+                        else:
+                            logger.error('Ошибка во время работы парсера.', exc_info=True)
+                finally:
+                    logger.info('Парсинг ссылки завершён.')
+                    self._stop_parser()
+                    if self._cancelled:
                         break
 
-                    self._stop_parser()
-        except Exception as e:
-            if not self._stopped:  # Don't catch intended exceptions caused by stopping parser
-                if isinstance(e, ChromeRuntimeException) and str(e) == 'Tab has been stopped':
-                    logger.error('Вкладка браузера была закрыта.')
-                elif isinstance(e, ChromeUserAbortException):
-                    logger.error('Работа парсера прервана пользователем.')
-                else:
-                    logger.error('Ошибка во время работы парсера.', exc_info=True)
-        finally:
-            self._stop_parser()
-            logger.info('Парсинг завершён.')
+        logger.info('Парсинг завершён.')
 
 
 @ensure_gui_enabled
@@ -201,7 +198,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
     window['-LOG-'].widget.bind('<Key>', log_key_handler)
 
     # Enable logging queue to be able to handle log in the mainloop
-    log_queue: queue.Queue[Tuple[str, str]] = queue.Queue()  # Queue of log messages (log_level, log_message)
+    log_queue: queue.Queue[tuple[str, str]] = queue.Queue()  # Queue of log messages (log_level, log_message)
     setup_gui_logger(log_queue, config.log)
 
     # Hand cursor for logo
