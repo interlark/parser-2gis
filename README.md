@@ -35,24 +35,6 @@
   # CLI + GUI
   pip install parser-2gis[gui]
   ```
- 
-### Установка из репозитория
-  ```bash
-  git clone https://github.com/interlark/parser-2gis
-  cd parser-2gis
-  
-  python -m venv venv
-  
-  # Windows
-  .\venv\Scripts\activate.bat
-  # Linux, MacOS
-  . venv/bin/activate
-  
-  # CLI
-  pip install .
-  # CLI + GUI
-  pip install .[gui]
-  ```
 
 ## 📖 Документация
 Описание работы доступно на [вики](https://github.com/interlark/parser-2gis/wiki).
