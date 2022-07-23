@@ -200,8 +200,10 @@ def invoke_widget_hook(sg: sg, parent_key: str,
         return created_widget
 
     sg.PackFormIntoFrame = new_PackFormIntoFrame
-    yield get_widget
-    sg.PackFormIntoFrame = old_PackFormIntoFrame
+    try:
+        yield get_widget
+    finally:
+        sg.PackFormIntoFrame = old_PackFormIntoFrame
 
 
 def url_query_encode(url: str) -> str:
