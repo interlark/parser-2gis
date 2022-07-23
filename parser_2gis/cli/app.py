@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from ..logger import setup_cli_logger
 from typing import TYPE_CHECKING
+
+from ..logger import setup_cli_logger
 from ..runner import CLIRunner
 
 if TYPE_CHECKING:
