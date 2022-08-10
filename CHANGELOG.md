@@ -2,6 +2,10 @@
 
 ## [Невошедшее]
 
+## [0.1.8] - 10-08-2022
+### Добавлено
+- Совместимость с Windows 7, Windows 8.
+
 ## [0.1.7] - 19-07-2022
 ### Исправлено
 - Возможная [ошибка](https://github.com/interlark/parser-2gis/issues/9) во время получения новго ключа авторизации.
@@ -48,7 +52,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.7...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.8...HEAD
+[0.1.8]: https://github.com/interlark/parser-2gis/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/interlark/parser-2gis/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/interlark/parser-2gis/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/interlark/parser-2gis/compare/v0.1.4...v0.1.5
