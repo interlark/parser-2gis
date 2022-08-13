@@ -317,6 +317,7 @@
             "51249",
             "9944",
             "51246",
+            "112585",
             "144",
             "15323",
             "146",
@@ -348,6 +349,7 @@
             "16677",
             "111594",
             "51459",
+            "112683",
             "164",
             "52248",
             "166",
@@ -801,7 +803,6 @@
             "239",
             "241",
             "50875",
-            "60421",
             "55691"
         ]
     },
@@ -906,6 +907,7 @@
         "code": "48",
         "parentCode": "8",
         "children": [
+            "112685",
             "809",
             "631",
             "774",
@@ -5015,7 +5017,7 @@
     "558": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Чай / Кофе",
+        "label": "Продажа кофе",
         "code": "558",
         "parentCode": "913",
         "children": []
@@ -9599,6 +9601,7 @@
             "51221",
             "110332",
             "51008",
+            "112684",
             "110490",
             "4515",
             "266",
@@ -9888,7 +9891,7 @@
     },
     "21466": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Саморегулируемые организации (СРО)",
         "code": "21466",
         "parentCode": "65",
@@ -12434,14 +12437,6 @@
         "label": "Паркинги",
         "code": "60340",
         "parentCode": "77",
-        "children": []
-    },
-    "60421": {
-        "isRussian": true,
-        "isNonRussian": true,
-        "label": "Услуги графолога",
-        "code": "60421",
-        "parentCode": "41",
         "children": []
     },
     "60732": {
@@ -15175,6 +15170,14 @@
         "parentCode": "16",
         "children": []
     },
+    "112585": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Полицейские станции",
+        "code": "112585",
+        "parentCode": "21",
+        "children": []
+    },
     "112586": {
         "isRussian": true,
         "isNonRussian": true,
@@ -15361,7 +15364,7 @@
     },
     "112623": {
         "isRussian": true,
-        "isNonRussian": true,
+        "isNonRussian": false,
         "label": "Музыкальное оформление бизнеса",
         "code": "112623",
         "parentCode": "59",
@@ -15645,6 +15648,30 @@
         "label": "Пляжные принадлежности",
         "code": "112682",
         "parentCode": "69",
+        "children": []
+    },
+    "112683": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Продажа чая",
+        "code": "112683",
+        "parentCode": "25",
+        "children": []
+    },
+    "112684": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Клубы настольного тенниса",
+        "code": "112684",
+        "parentCode": "19519",
+        "children": []
+    },
+    "112685": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Атрибутика для болельщиков",
+        "code": "112685",
+        "parentCode": "48",
         "children": []
     },
     "-1": {
