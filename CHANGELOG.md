@@ -5,7 +5,7 @@
 ## [0.1.9] - 18-08-2022
 ### Добавлено
 - Новые рубрики: *Клубы настольного тенниса, Атрибутика для болельщиков, Полицейские станции*.
-- Поддержка парсинга ссылок "В здании". Fix #13, [wiki](https://github.com/interlark/parser-2gis/wiki/URLs)
+- Поддержка парсинга ссылок "В здании". Fix [issue](https://github.com/interlark/parser-2gis/issues/13), см. [wiki](https://github.com/interlark/parser-2gis/wiki/URLs).
 
 ## [0.1.8] - 10-08-2022
 ### Добавлено
