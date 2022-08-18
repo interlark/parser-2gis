@@ -19,10 +19,10 @@ class InBuildingParser(MainParser):
     URL pattern for such cases: https://2gis.<domain>/<city_id>/inside/<building_id>
     """
 
-    @classmethod
-    def url_pattern(self):
+    @staticmethod
+    def url_pattern():
         """URL pattern for the parser."""
-        return r'https://2gis.[^/]+/[^/]+/inside/.*'
+        return r'https?://2gis\.[^/]+/[^/]+/inside/.*'
 
     @wait_until_finished(timeout=5, throw_exception=False)
     def _get_links(self) -> list[DOMNode]:

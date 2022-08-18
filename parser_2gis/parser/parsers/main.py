@@ -50,10 +50,10 @@ class MainParser:
         blocked_urls = blocked_requests(extended=chrome_options.disable_images)
         self._chrome_remote.add_blocked_requests(blocked_urls)
 
-    @classmethod
-    def url_pattern(self):
+    @staticmethod
+    def url_pattern():
         """URL pattern for the parser."""
-        return r'https://2gis.[^/]+/[^/]+/search/.*'
+        return r'https?://2gis\.[^/]+/[^/]+/search/.*'
 
     @wait_until_finished(timeout=5, throw_exception=False)
     def _get_links(self) -> list[DOMNode]:
