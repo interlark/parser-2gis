@@ -1,7 +1,7 @@
-from .parser import Parser2GIS
+from .factory import get_parser
 from .options import ParserOptions
 
 __all__ = [
-    'Parser2GIS',
+    'get_parser',
     'ParserOptions',
 ]

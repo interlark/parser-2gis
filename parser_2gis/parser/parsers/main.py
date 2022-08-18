@@ -6,28 +6,33 @@ import re
 import urllib.parse
 from typing import TYPE_CHECKING
 
-from ..chrome import ChromeRemote
-from ..common import wait_until_finished
-from ..logger import logger
-from .utils import blocked_requests
+from ...chrome import ChromeRemote
+from ...common import wait_until_finished
+from ...logger import logger
+from ..utils import blocked_requests
 
 if TYPE_CHECKING:
-    from ..chrome import ChromeOptions
-    from ..chrome.dom import DOMNode
-    from ..writer import FileWriter
-    from .options import ParserOptions
+    from ...chrome import ChromeOptions
+    from ...chrome.dom import DOMNode
+    from ...writer import FileWriter
+    from ..options import ParserOptions
 
 
-class Parser2GIS:
-    """Parser extracts usefull payload using Chrome
-    browser and save it into a `json` or `csv` file.
+class MainParser:
+    """Main parser that extracts useful payload
+    from search result pages using Chrome browser
+    and saves it into a `json` or `csv` files.
 
     Args:
+        url: 2GIS URLs with items to be collected.
         chrome_options: Chrome options.
         parser_options: Parser options.
     """
-    def __init__(self, chrome_options: ChromeOptions, parser_options: ParserOptions) -> None:
+    def __init__(self, url: str,
+                 chrome_options: ChromeOptions,
+                 parser_options: ParserOptions) -> None:
         self._options = parser_options
+        self._url = url
 
         # "Catalog Item Document" response pattern.
         self._item_response_pattern = r'https://catalog\.api\.2gis.[^/]+/.*/items/byid'
@@ -44,6 +49,11 @@ class Parser2GIS:
         # Disable specific requests
         blocked_urls = blocked_requests(extended=chrome_options.disable_images)
         self._chrome_remote.add_blocked_requests(blocked_urls)
+
+    @classmethod
+    def url_pattern(self):
+        """URL pattern for the parser."""
+        return r'https://2gis.[^/]+/[^/]+/search/.*'
 
     @wait_until_finished(timeout=5, throw_exception=False)
     def _get_links(self) -> list[DOMNode]:
@@ -121,17 +131,16 @@ class Parser2GIS:
 
         return False
 
-    def parse_url(self, url: str, writer: FileWriter) -> None:
-        """Parse url with result items.
+    def parse(self, writer: FileWriter) -> None:
+        """Parse URL with result items.
 
         Args:
-            url: 2GIS url with results on it.
-            writer: File writer.
+            writer: Target file writer.
         """
         # Start from page one. Anyway, starting with page 6 and further
         # 2GIS redirects user to the beginning automatically,
         # so we better not to play with GET params.
-        url = re.sub(r'/page/\d+', '', url, re.I)
+        url = re.sub(r'/page/\d+', '', self._url, re.I)
         current_page_number = 1
 
         # Go URL
@@ -155,7 +164,7 @@ class Parser2GIS:
         # Parsed records
         collected_records = 0
 
-        # Already visited links.
+        # Already visited links
         visited_links: set[str] = set()
 
         # This wrapper is not necessary, but I'd like to be sure
@@ -236,7 +245,7 @@ class Parser2GIS:
     def close(self) -> None:
         self._chrome_remote.stop()
 
-    def __enter__(self) -> Parser2GIS:
+    def __enter__(self) -> MainParser:
         return self
 
     def __exit__(self, *exc_info) -> None:
@@ -244,4 +253,6 @@ class Parser2GIS:
 
     def __repr__(self) -> str:
         classname = self.__class__.__name__
-        return f'{classname}(parser_options={self._options!r}, chrome_remote={self._chrome_remote!r}'
+        return (f'{classname}(parser_options={self._options!r}, '
+                'chrome_remote={self._chrome_remote!r}, '
+                'url={self._url!r}')

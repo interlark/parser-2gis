@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 
 from ..exceptions import ChromeRuntimeException, ChromeUserAbortException
 from ..logger import logger
-from ..parser import Parser2GIS
+from ..parser import get_parser
 from ..writer import get_writer
 from .runner import AbstractRunner
 
@@ -17,7 +17,7 @@ class GUIRunner(AbstractRunner, threading.Thread):
     """GUI thread runner.
 
     Args:
-        urls: 2GIS URLs with result items to be collected.
+        urls: 2GIS URLs with items to be collected.
         output_path: Path to the result file.
         format: `csv` or `json` format.
         config: Configuration.
@@ -27,7 +27,7 @@ class GUIRunner(AbstractRunner, threading.Thread):
         AbstractRunner.__init__(self, urls, output_path, format, config)
         threading.Thread.__init__(self)
 
-        self._parser: Parser2GIS | None = None
+        self._parser = None
         self._lock = threading.Lock()
 
     def start(self) -> None:
@@ -60,10 +60,13 @@ class GUIRunner(AbstractRunner, threading.Thread):
             for url in self._urls:
                 try:
                     logger.info(f'Парсинг ссылки {url}')
-                    self._parser = Parser2GIS(chrome_options=self._config.chrome,
+                    self._parser = get_parser(url,
+                                              chrome_options=self._config.chrome,
                                               parser_options=self._config.parser)
+                    assert self._parser
+
                     if not self._cancelled:
-                        self._parser.parse_url(url, writer)
+                        self._parser.parse(writer)
                 except Exception as e:
                     if not self._cancelled:  # Don't catch intended exceptions caused by stopping parser
                         if isinstance(e, ChromeRuntimeException) and str(e) == 'Tab has been stopped':

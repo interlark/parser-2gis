@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 
 def get_writer(file_path: str, file_format: str, writer_options: WriterOptions) -> FileWriter:
-    """Writers factory function.
+    """Writer factory function.
 
     Args:
         output_path: Path to thr result file.
