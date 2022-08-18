@@ -1,8 +1,11 @@
 # История изменений
 
 ## [Невошедшее]
+
+## [0.1.9] - 18-08-2022
 ### Добавлено
 - Новые рубрики: *Клубы настольного тенниса, Атрибутика для болельщиков, Полицейские станции*.
+- Поддержка парсинга ссылок "В здании". Fix #13, [wiki](https://github.com/interlark/parser-2gis/wiki/URLs)
 
 ## [0.1.8] - 10-08-2022
 ### Добавлено
@@ -54,7 +57,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.8...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.9...HEAD
+[0.1.9]: https://github.com/interlark/parser-2gis/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/interlark/parser-2gis/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/interlark/parser-2gis/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/interlark/parser-2gis/compare/v0.1.5...v0.1.6

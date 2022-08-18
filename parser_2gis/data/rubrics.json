@@ -15628,7 +15628,7 @@
     },
     "112680": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Прокат компьютеров / ноутбуков",
         "code": "112680",
         "parentCode": "28",
