@@ -46,3 +46,7 @@
 
 ## 📖 Документация
 Описание работы доступно на [вики](https://github.com/interlark/parser-2gis/wiki).
+
+## 👍 Поддержать
+Поблагодарить и поддержать разработку <a href="https://qiwi.com/n/INTERLARK" target="_blank"><img alt="QIWI Donate" src="https://user-images.githubusercontent.com/20641837/195283860-ad41d5f7-c2f4-4960-8454-586a6271db10.png" width="100" height="45"></a>
+
