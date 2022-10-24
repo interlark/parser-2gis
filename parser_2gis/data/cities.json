@@ -480,6 +480,12 @@
         "country_code": "ru"
     },
     {
+        "name": "Кызылорда",
+        "code": "kyzylorda",
+        "domain": "ru",
+        "country_code": "kz"
+    },
+    {
         "name": "Ленинск-Кузнецкий",
         "code": "lenkuz",
         "domain": "ru",
@@ -524,6 +530,12 @@
     {
         "name": "Москва",
         "code": "moscow",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Московская область",
+        "code": "moscow_region",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -764,18 +776,6 @@
     {
         "name": "Саратов",
         "code": "saratov",
-        "domain": "ru",
-        "country_code": "ru"
-    },
-    {
-        "name": "Сергиев Посад",
-        "code": "s_posad",
-        "domain": "ru",
-        "country_code": "ru"
-    },
-    {
-        "name": "Серпухов",
-        "code": "serpuhov",
         "domain": "ru",
         "country_code": "ru"
     },

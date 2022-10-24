@@ -220,6 +220,7 @@
             "50535",
             "116",
             "50642",
+            "112584",
             "70514",
             "112583",
             "71182",
@@ -346,10 +347,10 @@
             "9786",
             "67763",
             "162",
+            "112719",
             "16677",
             "111594",
             "51459",
-            "112683",
             "164",
             "52248",
             "166",
@@ -368,6 +369,7 @@
         "parentCode": "2",
         "children": [
             "112455",
+            "110380",
             "537",
             "11648",
             "72370",
@@ -1098,6 +1100,7 @@
             "56161",
             "112582",
             "58618",
+            "112691",
             "108687",
             "110371",
             "95584",
@@ -1334,12 +1337,12 @@
         "code": "69",
         "parentCode": "1035",
         "children": [
+            "112448",
             "1182",
             "14426",
             "354",
             "605",
             "606",
-            "112448",
             "112678",
             "355",
             "551",
@@ -1396,6 +1399,7 @@
             "561",
             "1273",
             "112674",
+            "112704",
             "110976",
             "366",
             "559",
@@ -2036,6 +2040,7 @@
             "20165",
             "652",
             "13726",
+            "112695",
             "110355",
             "67142",
             "112650",
@@ -6337,7 +6342,7 @@
     "879": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Снэковая продукция",
+        "label": "Снековая продукция",
         "code": "879",
         "parentCode": "70",
         "children": []
@@ -6355,7 +6360,8 @@
             "110370",
             "19288",
             "372",
-            "558"
+            "558",
+            "112683"
         ]
     },
     "921": {
@@ -9986,6 +9992,7 @@
             "416",
             "517",
             "422",
+            "112697",
             "9505",
             "420"
         ]
@@ -11392,7 +11399,7 @@
     },
     "52248": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Рюмочные",
         "code": "52248",
         "parentCode": "25",
@@ -12217,7 +12224,7 @@
     },
     "56581": {
         "isRussian": true,
-        "isNonRussian": true,
+        "isNonRussian": false,
         "label": "Избирательные участки",
         "code": "56581",
         "parentCode": "44",
@@ -13498,6 +13505,14 @@
         "parentCode": "19519",
         "children": []
     },
+    "110380": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Аквапарки",
+        "code": "110380",
+        "parentCode": "26",
+        "children": []
+    },
     "110381": {
         "isRussian": true,
         "isNonRussian": true,
@@ -14020,7 +14035,7 @@
     },
     "110469": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Промышленный клининг",
         "code": "110469",
         "parentCode": "114",
@@ -14100,7 +14115,7 @@
     },
     "110487": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Полигоны размещения отходов",
         "code": "110487",
         "parentCode": "18",
@@ -14124,7 +14139,7 @@
     },
     "110490": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Лодочные станции",
         "code": "110490",
         "parentCode": "19519",
@@ -14973,7 +14988,7 @@
     "112448": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Косплей товары",
+        "label": "Аниме / косплей товары",
         "code": "112448",
         "parentCode": "69",
         "children": []
@@ -14996,7 +15011,7 @@
     },
     "112455": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Авиатренажеры",
         "code": "112455",
         "parentCode": "26",
@@ -15076,7 +15091,7 @@
     },
     "112525": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Кризисные центры",
         "code": "112525",
         "parentCode": "44",
@@ -15167,6 +15182,14 @@
         "isNonRussian": false,
         "label": "Администрация города / посёлка / села",
         "code": "112583",
+        "parentCode": "16",
+        "children": []
+    },
+    "112584": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Администрации районов города",
+        "code": "112584",
         "parentCode": "16",
         "children": []
     },
@@ -15316,7 +15339,7 @@
     },
     "112617": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Стендап-клубы",
         "code": "112617",
         "parentCode": "26",
@@ -15655,12 +15678,12 @@
         "isNonRussian": true,
         "label": "Продажа чая",
         "code": "112683",
-        "parentCode": "25",
+        "parentCode": "913",
         "children": []
     },
     "112684": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Клубы настольного тенниса",
         "code": "112684",
         "parentCode": "19519",
@@ -15672,6 +15695,46 @@
         "label": "Атрибутика для болельщиков",
         "code": "112685",
         "parentCode": "48",
+        "children": []
+    },
+    "112691": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Общественный душ",
+        "code": "112691",
+        "parentCode": "56",
+        "children": []
+    },
+    "112695": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Услуги пирсинга",
+        "code": "112695",
+        "parentCode": "106",
+        "children": []
+    },
+    "112697": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Залы ожидания повышенного комфорта",
+        "code": "112697",
+        "parentCode": "22191",
+        "children": []
+    },
+    "112704": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Растениеводство",
+        "code": "112704",
+        "parentCode": "70",
+        "children": []
+    },
+    "112719": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Кофейные автоматы",
+        "code": "112719",
+        "parentCode": "25",
         "children": []
     },
     "-1": {

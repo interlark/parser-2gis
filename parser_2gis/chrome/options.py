@@ -28,7 +28,7 @@ class ChromeOptions(BaseModel):
     """
     binary_path: Optional[pathlib.Path]
     start_maximized: bool = False
-    headless: bool = True
+    headless: bool = False
     disable_images: bool = True
     silent_browser: bool = True
     memory_limit: PositiveInt = default_memory_limit()
