@@ -129,6 +129,8 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
         return 'break'
 
     window['-LOG-'].widget.bind('<Key>', log_key_handler)
+    window['-LOG-'].widget.bind('<<Paste>>', lambda e: 'break')
+    window['-LOG-'].widget.bind('<<Cut>>', lambda e: 'break')
 
     # Enable logging queue to be able to handle log in the mainloop
     log_queue: queue.Queue[tuple[str, str]] = queue.Queue()  # Queue of log messages (log_level, log_message)
