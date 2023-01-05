@@ -33,7 +33,7 @@ class CSVWriter(FileWriter):
             'address': 'Адрес', 'address_comment': 'Комментарий к адресу',
             'postcode': 'Почтовый индекс', 'living_area': 'Микрорайон', 'district': 'Район', 'city': 'Город',
             'district_area': 'Округ', 'region': 'Регион', 'country': 'Страна', 'schedule': 'Часы работы',
-            'timezone': 'Часовой пояс',
+            'timezone': 'Часовой пояс', 'general_rating': 'Рейтинг', 'general_review_count': 'Количество отзывов'
         }
 
         # Expand complex mapping
@@ -179,6 +179,7 @@ class CSVWriter(FileWriter):
                 errors.append(f'[*] Поле: {path}, значение: {arg}, ошибка: {error_msg}')
 
             error_str = 'Ошибка парсинга:\n' + '\n'.join(errors)
+            error_str += '\nДокумент каталога: ' + str(catalog_doc)
             logger.error(error_str)
 
             return {}
@@ -189,6 +190,10 @@ class CSVWriter(FileWriter):
 
         # Address
         data['address'] = catalog_item.address_name
+
+        # Reviews
+        data['general_rating'] = catalog_item.reviews.general_rating
+        data['general_review_count'] = catalog_item.reviews.general_review_count
 
         # Point location
         if catalog_item.point:

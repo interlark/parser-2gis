@@ -91,15 +91,16 @@ if __name__ == '__main__':
         keywords='parser scraper 2gis',
         url='https://github.com/interlark/parser-2gis',
         project_urls={
-          'Documentation': 'https://github.com/interlark/parser-2gis/wiki',
-          'GitHub': 'https://github.com/interlark/parser-2gis',
-          'Changelog': 'https://github.com/interlark/parser-2gis/blob/main/CHANGELOG.md',
+            'Documentation': 'https://github.com/interlark/parser-2gis/wiki',
+            'GitHub': 'https://github.com/interlark/parser-2gis',
+            'Changelog': 'https://github.com/interlark/parser-2gis/blob/main/CHANGELOG.md',
         },
         install_requires=[
             'pychrome==0.2.3',
             'pydantic>=1.9.0',
             'psutil>=5.4.8',
             'requests>=2.13.0',
+            'xlsxwriter>=3.0.5',
         ],
         extras_require={
             'gui': [

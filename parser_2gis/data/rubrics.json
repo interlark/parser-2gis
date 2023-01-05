@@ -761,6 +761,7 @@
             "1181",
             "234",
             "50532",
+            "112787",
             "19080",
             "51645",
             "67495",
@@ -1097,6 +1098,7 @@
             "311",
             "111544",
             "16610",
+            "112785",
             "56161",
             "112582",
             "58618",
@@ -1115,9 +1117,11 @@
             "50414",
             "312",
             "1032",
+            "112781",
             "313",
             "46306",
             "110953",
+            "112788",
             "9561"
         ]
     },
@@ -1324,6 +1328,7 @@
             "109318",
             "786",
             "19983",
+            "112783",
             "4497",
             "110359",
             "9102",
@@ -1554,6 +1559,7 @@
             "112597",
             "110366",
             "70164",
+            "112778",
             "4532",
             "7690",
             "7697",
@@ -1575,12 +1581,14 @@
             "16648",
             "112616",
             "7691",
+            "112779",
             "10412",
             "110320",
             "110372",
             "413",
             "54458",
             "414",
+            "112784",
             "406",
             "7900",
             "56428",
@@ -2219,6 +2227,7 @@
             "110469",
             "709",
             "110466",
+            "112780",
             "110467",
             "110465",
             "110468"
@@ -7359,6 +7368,7 @@
         "children": [
             "122",
             "110073",
+            "112789",
             "59508",
             "143",
             "227",
@@ -8971,7 +8981,7 @@
     "15791": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Суши-бары / рестораны",
+        "label": "Суши-бары",
         "code": "15791",
         "parentCode": "25",
         "children": []
@@ -9002,7 +9012,7 @@
     },
     "16182": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Службы аварийных комиссаров",
         "code": "16182",
         "parentCode": "5420",
@@ -10100,7 +10110,7 @@
     },
     "23499": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Таксидермические студии",
         "code": "23499",
         "parentCode": "93",
@@ -11399,7 +11409,7 @@
     },
     "52248": {
         "isRussian": true,
-        "isNonRussian": true,
+        "isNonRussian": false,
         "label": "Рюмочные",
         "code": "52248",
         "parentCode": "25",
@@ -12891,7 +12901,7 @@
     },
     "103240": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Услуга распила мяса",
         "code": "103240",
         "parentCode": "70",
@@ -13131,7 +13141,7 @@
     },
     "110323": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Биометрические тестирования",
         "code": "110323",
         "parentCode": "61",
@@ -14019,7 +14029,7 @@
     },
     "110467": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Уход за твёрдыми полами",
         "code": "110467",
         "parentCode": "114",
@@ -14619,7 +14629,7 @@
     },
     "111007": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Представительная власть",
         "code": "111007",
         "parentCode": "17",
@@ -14819,7 +14829,7 @@
     },
     "112410": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Услуги лимфолога",
         "code": "112410",
         "parentCode": "36",
@@ -14923,7 +14933,7 @@
     },
     "112439": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Запчасти для чемоданов",
         "code": "112439",
         "parentCode": "74",
@@ -15251,7 +15261,7 @@
     },
     "112594": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Заповедники",
         "code": "112594",
         "parentCode": "26",
@@ -15355,7 +15365,7 @@
     },
     "112619": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Лектории",
         "code": "112619",
         "parentCode": "26",
@@ -15563,7 +15573,7 @@
     },
     "112657": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Гончарные мастерские",
         "code": "112657",
         "parentCode": "90",
@@ -15723,7 +15733,7 @@
     },
     "112704": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Растениеводство",
         "code": "112704",
         "parentCode": "70",
@@ -15735,6 +15745,86 @@
         "label": "Кофейные автоматы",
         "code": "112719",
         "parentCode": "25",
+        "children": []
+    },
+    "112778": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Продажа станций зарядки для электроавтомобилей",
+        "code": "112778",
+        "parentCode": "77",
+        "children": []
+    },
+    "112779": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Ремонт электроавтомобилей",
+        "code": "112779",
+        "parentCode": "77",
+        "children": []
+    },
+    "112780": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Устранение запахов сухим туманом / озонированием",
+        "code": "112780",
+        "parentCode": "114",
+        "children": []
+    },
+    "112781": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Химчистки обуви",
+        "code": "112781",
+        "parentCode": "56",
+        "children": []
+    },
+    "112783": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Ремонт резиновых и надувных изделий",
+        "code": "112783",
+        "parentCode": "68",
+        "children": []
+    },
+    "112784": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Ультразвуковая мойка деталей",
+        "code": "112784",
+        "parentCode": "77",
+        "children": []
+    },
+    "112785": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Камеры хранения багажа",
+        "code": "112785",
+        "parentCode": "56",
+        "children": []
+    },
+    "112787": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Услуги автоинструктора",
+        "code": "112787",
+        "parentCode": "39",
+        "children": []
+    },
+    "112788": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Центры бытовых  услуг",
+        "code": "112788",
+        "parentCode": "56",
+        "children": []
+    },
+    "112789": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Временные укрытия",
+        "code": "112789",
+        "parentCode": "5420",
         "children": []
     },
     "-1": {

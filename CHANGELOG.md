@@ -2,6 +2,13 @@
 
 ## [Невошедшее]
 
+## [1.1.0] - 05-01-2023
+### Добавлено
+- Обновлён список рубрик и городов.
+- Добавлены поля "Рейтинг" и "Количество отзывов".
+- Добавлена возможность записи результата в Excel таблицу.
+- Добавлена автоматическая навигация к странице, если в URL есть параметр страницы `/page/<номер_страницы>`.
+
 ## [0.1.10] - 25-10-2022
 ### Добавлено
 - Обновлён список рубрик и городов.
@@ -64,7 +71,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v0.1.10...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/interlark/parser-2gis/compare/v0.1.10...v1.1.0
 [0.1.10]: https://github.com/interlark/parser-2gis/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/interlark/parser-2gis/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/interlark/parser-2gis/compare/v0.1.7...v0.1.8

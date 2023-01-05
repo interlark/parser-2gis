@@ -32,7 +32,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
     Args:
         url: 2GIS URLs with results to be collected.
         output_path: Path to the result file.
-        format: `csv` or `json` format.
+        format: `csv`, `xlsx` or `json` format.
         config: User configuration.
     """
     # App color theme
@@ -46,7 +46,9 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
 
     # Result format
     default_result_format = format if format else 'csv'
-    result_filetype = {'csv': [('CSV Table', '*.csv')], 'json': [('JSON', '*.json')]}
+    result_filetype = {'csv': [('CSV Table', '*.csv')],
+                       'xlsx': [('Microsoft Excel Spreadsheet', '*.xlsx')],
+                       'json': [('JSON', '*.json')]}
 
     # If urls wasn't passed then let it be an empty list
     if urls is None:
@@ -67,7 +69,7 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
                         [
                             sg.Text('Тип'),
                             sg.Combo(key='-FILE_FORMAT-', default_value=default_result_format,
-                                     values=['csv', 'json'], readonly=True, enable_events=True),
+                                     values=['csv', 'xlsx', 'json'], readonly=True, enable_events=True),
                             sg.Text('Путь'),
                             sg.Input(key='-OUTPUT_PATH-', expand_x=True,
                                      default_text='' if output_path is None else output_path),
@@ -219,6 +221,13 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
                 urls = ret_urls
                 update_urls_input()
 
+        # Select output file format
+        elif event == '-FILE_FORMAT-':
+            file_format = values['-FILE_FORMAT-']
+            if file_format in result_filetype:
+                window['-OUTPUT_PATH_BROWSE-'].FileTypes = result_filetype[file_format]
+                window['-OUTPUT_PATH_BROWSE-'].DefaultExtension = f'.{file_format}'
+
         # Click logo
         elif event == '-IMG_LOGO-':
             webbrowser.open('https://github.com/interlark/parser-2gis')
@@ -246,8 +255,13 @@ def gui_app(urls: list[str], output_path: str, format: str, config: Configuratio
                 continue
 
             # Check result format
-            if values['-FILE_FORMAT-'] not in ('csv', 'json'):
-                gui_error_popup('Формат результирующего файла должен быть csv или json!')
+            if values['-FILE_FORMAT-'] not in ('csv', 'xlsx', 'json'):
+                gui_error_popup('Формат результирующего файла должен быть csv, xlsx или json!')
+                continue
+
+            # Check if result format match output file extension
+            if values['-OUTPUT_PATH-'].split('.')[-1].lower() != values['-FILE_FORMAT-']:
+                gui_error_popup('Расширение результирующего файла должно быть *.%s!' % values['-FILE_FORMAT-'])
                 continue
 
             # Sync urls with input element

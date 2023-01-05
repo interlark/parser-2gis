@@ -98,7 +98,7 @@ def parse_arguments() -> tuple[argparse.Namespace, Configuration]:
     main_parser = arg_parser.add_argument_group(main_parser_name)
     main_parser.add_argument('-i', '--url', nargs='+', default=None, required=main_parser_required, help='URL с выдачей')
     main_parser.add_argument('-o', '--output-path', metavar='PATH', default=None, required=main_parser_required, help='Путь до результирующего файла')
-    main_parser.add_argument('-f', '--format', metavar='{csv,json}', choices=['csv', 'json'], default=None, required=main_parser_required, help='Формат результирующего файла')
+    main_parser.add_argument('-f', '--format', metavar='{csv,xlsx,json}', choices=['csv', 'xlsx', 'json'], default=None, required=main_parser_required, help='Формат результирующего файла')
 
     browser_parser = arg_parser.add_argument_group('Аргументы браузера')
     browser_parser.add_argument('--chrome.binary_path', metavar='PATH', help='Путь до исполняемого файла браузера. Если не указан, то определяется автоматически')
@@ -108,7 +108,7 @@ def parse_arguments() -> tuple[argparse.Namespace, Configuration]:
     browser_parser.add_argument('--chrome.start-maximized', metavar='{yes,no}', help='Запустить окно браузера развёрнутым')
     browser_parser.add_argument('--chrome.memory-limit', metavar='{4096,5120,...}', help='Лимит оперативной памяти браузера (мегабайт)')
 
-    csv_parser = arg_parser.add_argument_group('Аргументы CSV')
+    csv_parser = arg_parser.add_argument_group('Аргументы CSV/XLSX')
     csv_parser.add_argument('--writer.csv.add-rubrics', metavar='{yes,no}', help='Добавить колонку "Рубрики"')
     csv_parser.add_argument('--writer.csv.add-comments', metavar='{yes,no}', help='Добавлять комментарии к ячейкам Телефон, E-Mail, и т.д.')
     csv_parser.add_argument('--writer.csv.columns-per-entity', metavar='{1,2,3,...}', help='Количество колонок для результата с несколькими возможными значениями: Телефон_1, Телефон_2, и т.д.')

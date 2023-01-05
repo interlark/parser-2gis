@@ -13,7 +13,7 @@ class CLIRunner(AbstractRunner):
     Args:
         urls: 2GIS URLs with items to be collected.
         output_path: Path to the result file.
-        format: `csv` or `json` format.
+        format: `csv`, `xlsx` or `json` format.
         config: Configuration.
     """
     def start(self):

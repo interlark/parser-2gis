@@ -112,7 +112,11 @@ def report_from_validation_error(ex: ValidationError,
             for field in loc:
                 if field == '__root__':
                     break
-                value = value[field]
+                if field in value:
+                    value = value[field]
+                else:
+                    value = '<No value>'  # type: ignore
+                    break
 
             values[attribute_path] = {
                 'invalid_value': value,

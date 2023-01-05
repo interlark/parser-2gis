@@ -121,7 +121,7 @@ def gui_settings(config: Configuration) -> None:
             ]),
         ],
         [
-            sg.Frame('CSV', expand_x=True, pad=((5, 5), (5, 10)), layout=[
+            sg.Frame('CSV/XLSX', expand_x=True, pad=((5, 5), (5, 10)), layout=[
                 [
                     sg.Checkbox('Добавить "Рубрики"', pad=((0, 10), (5, 0)), key='-WRITER.CSV.ADD_RUBRICS-',
                                 tooltip='Добавить колонку "Рубрики"',

@@ -90,6 +90,12 @@
         "country_code": "kz"
     },
     {
+        "name": "Астана",
+        "code": "nur_sultan",
+        "domain": "kz",
+        "country_code": "kz"
+    },
+    {
         "name": "Атырау",
         "code": "atyrau",
         "domain": "kz",
@@ -110,12 +116,6 @@
     {
         "name": "Костанай",
         "code": "kostanay",
-        "domain": "kz",
-        "country_code": "kz"
-    },
-    {
-        "name": "Нур-Султан",
-        "code": "nur_sultan",
         "domain": "kz",
         "country_code": "kz"
     },

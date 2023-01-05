@@ -10,6 +10,7 @@ from .contact_group import ContactGroup
 from .name_ex import NameEx
 from .org import Org
 from .point import Point
+from .reviews import Reviews
 from .rubric import Rubric
 from .schedule import Schedule
 
@@ -44,6 +45,9 @@ class CatalogItem(BaseModel):
 
     # Расширеное название филиала
     name_ex: NameEx
+
+    # Отзывы
+    reviews: Reviews
 
     # Организация
     org: Org
