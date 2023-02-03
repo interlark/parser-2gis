@@ -374,6 +374,7 @@
             "11648",
             "72370",
             "110305",
+            "112792",
             "110358",
             "100772",
             "946",
@@ -1220,7 +1221,8 @@
             "22779",
             "74007",
             "16928",
-            "112444"
+            "112444",
+            "112793"
         ]
     },
     "63": {
@@ -1762,7 +1764,6 @@
             "20965",
             "112646",
             "16028",
-            "112537",
             "12996"
         ]
     },
@@ -2043,6 +2044,7 @@
             "14942",
             "112492",
             "70190",
+            "112790",
             "13597",
             "58858",
             "20165",
@@ -6792,6 +6794,7 @@
         "children": [
             "1193",
             "10791",
+            "112791",
             "1194"
         ]
     },
@@ -10110,7 +10113,7 @@
     },
     "23499": {
         "isRussian": true,
-        "isNonRussian": true,
+        "isNonRussian": false,
         "label": "Таксидермические студии",
         "code": "23499",
         "parentCode": "93",
@@ -13405,7 +13408,7 @@
     },
     "110361": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Подвеска / Подсветка для картин",
         "code": "110361",
         "parentCode": "90",
@@ -13581,7 +13584,7 @@
     },
     "110388": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Парки для водных видов спорта",
         "code": "110388",
         "parentCode": "26",
@@ -15123,14 +15126,6 @@
         "parentCode": "40",
         "children": []
     },
-    "112537": {
-        "isRussian": true,
-        "isNonRussian": false,
-        "label": "Участники проекта СберРядом",
-        "code": "112537",
-        "parentCode": "89",
-        "children": []
-    },
     "112541": {
         "isRussian": true,
         "isNonRussian": false,
@@ -15317,7 +15312,7 @@
     },
     "112609": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Караоке-боксы",
         "code": "112609",
         "parentCode": "26",
@@ -15469,7 +15464,7 @@
     },
     "112638": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Прокат детских платьев",
         "code": "112638",
         "parentCode": "66",
@@ -15814,7 +15809,7 @@
     "112788": {
         "isRussian": true,
         "isNonRussian": false,
-        "label": "Центры бытовых  услуг",
+        "label": "Центры бытовых услуг",
         "code": "112788",
         "parentCode": "56",
         "children": []
@@ -15825,6 +15820,38 @@
         "label": "Временные укрытия",
         "code": "112789",
         "parentCode": "5420",
+        "children": []
+    },
+    "112790": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Товары для росписи по телу / временные татуировки",
+        "code": "112790",
+        "parentCode": "106",
+        "children": []
+    },
+    "112791": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Фонды пенсионного и социального страхования",
+        "code": "112791",
+        "parentCode": "1192",
+        "children": []
+    },
+    "112792": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Аренда детских пространств для праздников",
+        "code": "112792",
+        "parentCode": "26",
+        "children": []
+    },
+    "112793": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Центры подключения курьеров",
+        "code": "112793",
+        "parentCode": "61",
         "children": []
     },
     "-1": {
