@@ -21,9 +21,9 @@ class CSVWriter(FileWriter):
         # Complex mapping means its content could contain several entities bound by user settings.
         # For example: phone -> phone_1, phone_2, ..., phone_n
         return {
-            'phone': 'Телефон', 'email': 'E-mail',
-            'website': 'Веб-сайт', 'instagram': 'Instagram', 'twitter': 'Twitter', 'facebook': 'Facebook',
-            'vkontakte': 'ВКонтакте', 'youtube': 'YouTube', 'skype': 'Skype'
+            'phone': 'Телефон', 'email': 'E-mail', 'website': 'Веб-сайт', 'instagram': 'Instagram',
+            'twitter': 'Twitter', 'facebook': 'Facebook', 'vkontakte': 'ВКонтакте', 'whatsapp': 'WhatsApp',
+            'viber': 'Viber', 'telegram': 'Telegram', 'youtube': 'YouTube', 'skype': 'Skype'
         }
 
     @property
@@ -252,9 +252,15 @@ class CSVWriter(FileWriter):
                         if self._options.csv.add_comments and contact.comment:
                             data[data_name] += ' (%s)' % contact.comment
 
-            # Urls
-            for t in ['website', 'vkontakte', 'instagram', 'facebook', 'twitter', 'youtube']:
+            # URLs
+            for t in ['website', 'vkontakte', 'whatsapp', 'viber', 'telegram',
+                      'instagram', 'facebook', 'twitter', 'youtube', 'skype']:
                 append_contact(t, ['url'])
+
+            # Remove arguments from WhatsApp URL
+            for field in data:
+                if field.startswith('whatsapp') and data[field]:
+                    data[field] = data[field].split('?')[0]
 
             # Values
             for t in ['email', 'skype']:
