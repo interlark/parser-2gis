@@ -26,7 +26,7 @@ class ChromeOptions(BaseModel):
         silent_browser: Do not show Chrome's output in `stdout`.
         memory_size: Max V8's memory size.
     """
-    binary_path: Optional[pathlib.Path]
+    binary_path: Optional[pathlib.Path] = None
     start_maximized: bool = False
     headless: bool = False
     disable_images: bool = True

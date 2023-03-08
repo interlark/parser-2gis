@@ -51,8 +51,9 @@ class ChromeRemote:
             `True` on success, `False` on failure.
         """
         try:
-            self._chrome_interface = pychrome.Browser(url=f'http://127.0.0.1:{port}')
-            self._chrome_tab = self._chrome_interface.new_tab()
+            self._dev_url = f'http://127.0.0.1:{port}'
+            self._chrome_interface = pychrome.Browser(url=self._dev_url)
+            self._chrome_tab = self._create_tab()
             self._chrome_tab.start()
             return True
         except (RequestException, WebSocketException):
@@ -68,6 +69,17 @@ class ChromeRemote:
 
         self._setup_tab()
         self._init_tab_monitor()
+
+    def _create_tab(self) -> pychrome.Tab:
+        """Create Chrome Tab."""
+        resp = requests.put('%s/json/new' % (self._dev_url), json=True)         
+        return pychrome.Tab(**resp.json())
+
+    def _close_tab(self, tab: pychrome.Tab) -> None:
+        """Close Chrome Tab."""
+        if tab.status == pychrome.Tab.status_started:
+            tab.stop()
+        requests.put('%s/json/close/%s' % (self._dev_url, tab.id))
 
     def _setup_tab(self) -> None:
         """Hide webdriver, enable requests/response interception, fix UA."""
@@ -356,8 +368,7 @@ class ChromeRemote:
         # Close tab and browser
         if self._chrome_tab:
             try:
-                self._chrome_tab.stop()
-                self._chrome_interface.close_tab(self._chrome_tab)
+                self._close_tab(self._chrome_tab)
             except (pychrome.RuntimeException, RequestException):
                 pass
 

@@ -37,6 +37,7 @@ class ChromeBrowser():
             f'--remote-debugging-port={self._remote_port}',
             f'--user-data-dir={self._profile_path}', '--no-default-browser-check',
             '--no-first-run', '--no-sandbox', '--disable-fre',
+            '--remote-allow-origins=*',
             f'--js-flags=--expose-gc --max-old-space-size={chrome_options.memory_limit}',
         ]
 
