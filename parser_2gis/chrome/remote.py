@@ -41,17 +41,13 @@ class ChromeRemote:
         self._requests_lock = threading.Lock()
 
     @wait_until_finished(timeout=60)
-    def _connect_interface(self, port: int) -> bool:
+    def _connect_interface(self) -> bool:
         """Establish connection to Chrome and open new tab.
-
-        Args:
-            port: Remote's Chrome port.
 
         Returns:
             `True` on success, `False` on failure.
         """
         try:
-            self._dev_url = f'http://127.0.0.1:{port}'
             self._chrome_interface = pychrome.Browser(url=self._dev_url)
             self._chrome_tab = self._create_tab()
             self._chrome_tab.start()
@@ -63,10 +59,10 @@ class ChromeRemote:
         """Open browser, create new tab, setup remote interface."""
         # Open browser
         self._chrome_browser = ChromeBrowser(self._chrome_options)
+        self._dev_url = f'http://127.0.0.1:{self._chrome_browser.remote_port}'
 
         # Connect browser with CDP
-        self._connect_interface(self._chrome_browser.remote_port)
-
+        self._connect_interface()
         self._setup_tab()
         self._init_tab_monitor()
 
@@ -201,19 +197,22 @@ class ChromeRemote:
             like nothing bad happend, so we better monitor tabs index page
             and check if our tab is still alive."""
             while not self._chrome_tab._stopped.is_set():
-                ret = requests.get('%s/json' % self._chrome_interface.dev_url, json=True)
-                if not any(x['id'] == self._chrome_tab.id for x in ret.json()):
-                    nonlocal tab_detached
-                    tab_detached = True
-                    self._chrome_tab._stopped.set()
+                try:
+                    ret = requests.get('%s/json' % self._dev_url, json=True)
+                    if not any(x['id'] == self._chrome_tab.id for x in ret.json()):
+                        nonlocal tab_detached
+                        tab_detached = True
+                        self._chrome_tab._stopped.set()
 
-                self._chrome_tab._stopped.wait(0.5)
+                    self._chrome_tab._stopped.wait(0.5)
+                except ConnectionError:
+                    break
 
         self._ping_thread = threading.Thread(target=monitor_tab, daemon=True)
         self._ping_thread.start()
 
         def get_send_with_reraise() -> Callable[..., Any]:
-            """Reraise "Tab has been stopped" instead of `UserAbortException` in
+            """Re-raise "Tab has been stopped" instead of `UserAbortException` in
             case of tab detach detected."""
             original_send = self._chrome_tab._send
 
