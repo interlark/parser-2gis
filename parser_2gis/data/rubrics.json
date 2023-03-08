@@ -1759,6 +1759,7 @@
             "112549",
             "112660",
             "104196",
+            "112794",
             "46735",
             "111503",
             "20965",
@@ -1808,10 +1809,12 @@
             "394",
             "395",
             "278",
+            "112797",
             "548",
             "53267",
             "110436",
             "23499",
+            "112796",
             "110443"
         ]
     },
@@ -4969,7 +4972,7 @@
     "548": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Печи / Камины",
+        "label": "Печи / камины для помещений",
         "code": "548",
         "parentCode": "93",
         "children": []
@@ -10113,7 +10116,7 @@
     },
     "23499": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Таксидермические студии",
         "code": "23499",
         "parentCode": "93",
@@ -13592,7 +13595,7 @@
     },
     "110389": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Хлопководство",
         "code": "110389",
         "parentCode": "74",
@@ -14432,7 +14435,7 @@
     },
     "110651": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Выгул домашних животных",
         "code": "110651",
         "parentCode": "749",
@@ -15504,7 +15507,7 @@
     },
     "112646": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Терминалы по приёму монет",
         "code": "112646",
         "parentCode": "89",
@@ -15696,7 +15699,7 @@
     },
     "112685": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Атрибутика для болельщиков",
         "code": "112685",
         "parentCode": "48",
@@ -15704,7 +15707,7 @@
     },
     "112691": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Общественный душ",
         "code": "112691",
         "parentCode": "56",
@@ -15792,7 +15795,7 @@
     },
     "112785": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Камеры хранения багажа",
         "code": "112785",
         "parentCode": "56",
@@ -15852,6 +15855,30 @@
         "label": "Центры подключения курьеров",
         "code": "112793",
         "parentCode": "61",
+        "children": []
+    },
+    "112794": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Пункты денежных переводов",
+        "code": "112794",
+        "parentCode": "89",
+        "children": []
+    },
+    "112796": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Услуги печника",
+        "code": "112796",
+        "parentCode": "93",
+        "children": []
+    },
+    "112797": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Мангалы / Коптильни / Тандыры",
+        "code": "112797",
+        "parentCode": "93",
         "children": []
     },
     "-1": {

@@ -48,6 +48,12 @@
         "country_code": "eg"
     },
     {
+        "name": "Басра",
+        "code": "basra",
+        "domain": "iq",
+        "country_code": "iq"
+    },
+    {
         "name": "Падуя",
         "code": "padova",
         "domain": "it",

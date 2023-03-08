@@ -2,6 +2,12 @@
 
 ## [Невошедшее]
 
+## [1.1.2] - 08-03-2023
+### Добавлено
+- Поддержка Chrome v111.
+- Новый город Басра (Ирак).
+- Обновлён список рубрик и городов.
+
 ## [1.1.1] - 03-02-2023
 ### Добавлено
 - Обновлён список рубрик и городов.
@@ -76,7 +82,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v1.1.1...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/interlark/parser-2gis/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/interlark/parser-2gis/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/interlark/parser-2gis/compare/v0.1.10...v1.1.0
 [0.1.10]: https://github.com/interlark/parser-2gis/compare/v0.1.9...v0.1.10
