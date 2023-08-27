@@ -74,7 +74,7 @@ class CatalogItem(BaseModel):
     type: str
 
     # Признак удаленного объекта
-    is_deleted: Optional[bool]
+    # is_deleted: Optional[bool]
 
     @property
     def url(self) -> str:
