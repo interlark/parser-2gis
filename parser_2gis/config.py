@@ -21,13 +21,13 @@ class Configuration(BaseModel):
     writer: WriterOptions = WriterOptions()
     chrome: ChromeOptions = ChromeOptions()
     parser: ParserOptions = ParserOptions()
-    path: Optional[pathlib.Path]
+    path: Optional[pathlib.Path] = None
     version: str = config_version
 
     def __init__(self, *args, **kwargs) -> None:
         def setup_config(model: BaseModel) -> None:
             """Recursively setup config."""
-            self.Config.validate_assignment = True
+            # self.Config.validate_assignment = True
             for field in model.__fields__:
                 attr = getattr(model, field)
                 if isinstance(attr, BaseModel):
