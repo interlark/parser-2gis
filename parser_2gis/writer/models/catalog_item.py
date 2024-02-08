@@ -44,13 +44,13 @@ class CatalogItem(BaseModel):
     name: Optional[str] = None
 
     # Расширеное название филиала
-    name_ex: NameEx
+    name_ex: Optional[NameEx] = None
 
     # Отзывы
     reviews: Reviews
 
     # Организация
-    org: Org
+    org: Optional[Org] = None
 
     # Координаты точки поиска, заданные в системе координат WGS84 в формате lon, lat
     point: Optional[Point] = None
@@ -62,7 +62,7 @@ class CatalogItem(BaseModel):
     segment_id: Optional[str] = None
 
     # Рубрики филиала
-    rubrics: List[Rubric]
+    rubrics: List[Rubric] = []
 
     # Время работы
     schedule: Optional[Schedule] = None

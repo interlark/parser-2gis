@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import codecs
 
-from pydantic import BaseModel, PositiveInt, validator
+from pydantic import BaseModel, Field, validator
 
 
 class CSVOptions(BaseModel):
@@ -12,13 +12,14 @@ class CSVOptions(BaseModel):
         add_rubrics: Whether to add rubrics to csv or not.
         add_comments: Add comments to complex columns (phones, emails, etc.)
             with extra info, business hours.
-        columns_per_entity: Remove empty columns after parsing process finished.
+        columns_per_entity: Number of columns for a result with multiple possible values.
+        remove_empty_columns: Remove empty columns after parsing process finished.
         remove_duplicates: Remove duplicates after parsing process finished.
         join_char: Char for joining complex values.
     """
     add_rubrics: bool = True
     add_comments: bool = True
-    columns_per_entity: PositiveInt = 3
+    columns_per_entity: int = Field(3, gt=0, le=5)
     remove_empty_columns: bool = True
     remove_duplicates: bool = True
     join_char: str = '; '

@@ -44,7 +44,7 @@ def wait_until_finished(timeout: int | None = None,
 
     Args:
         timeout: Max time to wait.
-        finished: Predicate for successed result of decorated function.
+        finished: Predicate for succeeded result of decorated function.
         throw_exception: Whether to throw `TimeoutError`.
         poll_interval: Poll interval for result of decorated function.
     """
@@ -75,7 +75,7 @@ def report_from_validation_error(ex: ValidationError,
     for `BaseModel` out of `ValidationError`.
 
     Note:
-        It's convinient to use when you try to instantiate
+        It's convenient to use when you try to instantiate
         model with predefined dictionary. For example:
 
         class TestModel(BaseModel):
@@ -137,7 +137,7 @@ def unwrap_dot_dict(d: dict) -> dict:
     Example:
         Input:
             {
-                'full.path.filedname': 'value1',
+                'full.path.fieldname': 'value1',
                 'another.fieldname': 'value2',
             }
 

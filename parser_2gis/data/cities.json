@@ -108,6 +108,12 @@
         "country_code": "kz"
     },
     {
+        "name": "Жезказган",
+        "code": "zhezkazgan",
+        "domain": "kz",
+        "country_code": "kz"
+    },
+    {
         "name": "Караганда",
         "code": "karaganda",
         "domain": "kz",
@@ -192,6 +198,12 @@
         "country_code": "ru"
     },
     {
+        "name": "Абхазия",
+        "code": "abkhazia",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Альметьевск",
         "code": "almetevsk",
         "domain": "ru",
@@ -222,8 +234,20 @@
         "country_code": "ru"
     },
     {
+        "name": "Баган",
+        "code": "bagan",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Балаково",
         "code": "balakovo",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Барабинск",
+        "code": "barabinsk",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -236,6 +260,12 @@
     {
         "name": "Белгород",
         "code": "belgorod",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Белорецк",
+        "code": "beloretsk",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -272,6 +302,12 @@
     {
         "name": "Великий Новгород",
         "code": "v_novgorod",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Венгерово",
+        "code": "vengerovo",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -330,6 +366,12 @@
         "country_code": "ru"
     },
     {
+        "name": "Довольное",
+        "code": "dovolnoe",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Екатеринбург",
         "code": "ekaterinburg",
         "domain": "ru",
@@ -338,6 +380,12 @@
     {
         "name": "Елец",
         "code": "elets",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Здвинск",
+        "code": "zdvinsk",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -408,6 +456,18 @@
         "country_code": "ru"
     },
     {
+        "name": "Карасук",
+        "code": "karasuk",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Каргат",
+        "code": "kargat",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Кемерово",
         "code": "kemerovo",
         "domain": "ru",
@@ -444,8 +504,20 @@
         "country_code": "ru"
     },
     {
+        "name": "Кочки",
+        "code": "kotchki",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Краснодар",
         "code": "krasnodar",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Краснозёрское",
+        "code": "krasnozerskoe",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -462,8 +534,20 @@
         "country_code": "ru"
     },
     {
+        "name": "Куйбышев",
+        "code": "kuibyshev",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Кумертау",
         "code": "kumertau",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Купино",
+        "code": "kupino",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -480,16 +564,16 @@
         "country_code": "ru"
     },
     {
-        "name": "Кызыл",
-        "code": "kyzyl",
-        "domain": "ru",
-        "country_code": "ru"
-    },
-    {
         "name": "Кызылорда",
         "code": "kyzylorda",
         "domain": "ru",
         "country_code": "kz"
+    },
+    {
+        "name": "Кыштовка",
+        "code": "kyshtovka",
+        "domain": "ru",
+        "country_code": "ru"
     },
     {
         "name": "Ленинск-Кузнецкий",
@@ -530,6 +614,12 @@
     {
         "name": "Миасс и Златоуст",
         "code": "miass",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Мичуринск",
+        "code": "michurinsk",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -786,6 +876,12 @@
         "country_code": "ru"
     },
     {
+        "name": "Северное",
+        "code": "severnoe",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Сланцы",
         "code": "slantsy",
         "domain": "ru",
@@ -852,6 +948,12 @@
         "country_code": "ru"
     },
     {
+        "name": "Татарск",
+        "code": "tatarsk",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Тверь",
         "code": "tver",
         "domain": "ru",
@@ -888,6 +990,12 @@
         "country_code": "ru"
     },
     {
+        "name": "Убинское",
+        "code": "ubinskoe",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Улан-Удэ",
         "code": "ulanude",
         "domain": "ru",
@@ -902,6 +1010,12 @@
     {
         "name": "Уссурийск",
         "code": "ussuriysk",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Усть-Тарка",
+        "code": "ust_tarka",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -936,6 +1050,12 @@
         "country_code": "ru"
     },
     {
+        "name": "Чаны",
+        "code": "chany",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Чебоксары",
         "code": "cheboksary",
         "domain": "ru",
@@ -954,8 +1074,20 @@
         "country_code": "ru"
     },
     {
+        "name": "Чистоозёрное",
+        "code": "chistoozernoe",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
         "name": "Чита",
         "code": "chita",
+        "domain": "ru",
+        "country_code": "ru"
+    },
+    {
+        "name": "Чулым",
+        "code": "chulym",
         "domain": "ru",
         "country_code": "ru"
     },
@@ -1026,6 +1158,12 @@
         "country_code": "sa"
     },
     {
+        "name": "Неом",
+        "code": "neom",
+        "domain": "sa",
+        "country_code": "sa"
+    },
+    {
         "name": "Табук",
         "code": "tabuk",
         "domain": "sa",
@@ -1044,26 +1182,26 @@
         "country_code": "sa"
     },
     {
-        "name": "Эль-Баха",
-        "code": "el_baha",
-        "domain": "sa",
-        "country_code": "sa"
-    },
-    {
-        "name": "Эль-Джауф",
+        "name": "Эль Джауф",
         "code": "el_jouf",
         "domain": "sa",
         "country_code": "sa"
     },
     {
-        "name": "Эль-Касим",
+        "name": "Эль Касим",
         "code": "qasim",
         "domain": "sa",
         "country_code": "sa"
     },
     {
-        "name": "Эль-Худуд-эш-Шамалия",
+        "name": "Эль Худуд эш Шамалия",
         "code": "hudud_al_shamaliya",
+        "domain": "sa",
+        "country_code": "sa"
+    },
+    {
+        "name": "Эль-Баха",
+        "code": "el_baha",
         "domain": "sa",
         "country_code": "sa"
     },
@@ -1074,28 +1212,10 @@
         "country_code": "sa"
     },
     {
-        "name": "Днепр",
-        "code": "dnepropetrovsk",
-        "domain": "ua",
-        "country_code": "ua"
-    },
-    {
-        "name": "Киев",
-        "code": "kiev",
-        "domain": "ua",
-        "country_code": "ua"
-    },
-    {
-        "name": "Одесса",
-        "code": "odessa",
-        "domain": "ua",
-        "country_code": "ua"
-    },
-    {
-        "name": "Харьков",
-        "code": "kharkov",
-        "domain": "ua",
-        "country_code": "ua"
+        "name": "Самарканд",
+        "code": "samarkand",
+        "domain": "uz",
+        "country_code": "uz"
     },
     {
         "name": "Ташкент",

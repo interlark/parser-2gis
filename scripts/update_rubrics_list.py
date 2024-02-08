@@ -42,7 +42,7 @@ with ChromeRemote(chrome_options, [_REGIONS_LIST_RESPONSE]) as chrome_remote:
     rubrics = doc['rubrics']
     for v in rubrics.values():
         del v['totalCount']
-        del v['GroupId']
+        del v['groupId']
 
     # Check for special None rubric
     assert any(x['label'] == 'Без рубрики' for x in rubrics.values())

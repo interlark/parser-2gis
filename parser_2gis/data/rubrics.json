@@ -224,6 +224,7 @@
             "70514",
             "112583",
             "71182",
+            "112858",
             "71183"
         ]
     },
@@ -308,11 +309,11 @@
         "parentCode": "1",
         "children": [
             "137",
-            "8463",
             "68617",
             "24352",
             "140",
             "141",
+            "112800",
             "51351",
             "50348",
             "51249",
@@ -328,6 +329,8 @@
             "147",
             "41976",
             "110437",
+            "8463",
+            "110432",
             "15688",
             "53244"
         ]
@@ -432,7 +435,6 @@
         "code": "27",
         "parentCode": "19532",
         "children": [
-            "646",
             "52115",
             "110409",
             "176",
@@ -446,7 +448,8 @@
             "25190",
             "110399",
             "110382",
-            "5750"
+            "5750",
+            "646"
         ]
     },
     "28": {
@@ -513,6 +516,7 @@
         "children": [
             "189",
             "51211",
+            "112875",
             "10887",
             "112626",
             "51326",
@@ -609,6 +613,7 @@
             "23765",
             "202",
             "225",
+            "112853",
             "16255",
             "103127",
             "206",
@@ -627,6 +632,7 @@
             "229",
             "18410",
             "11941",
+            "112867",
             "110513"
         ]
     },
@@ -639,27 +645,29 @@
         "children": [
             "50342",
             "112590",
-            "661",
             "110354",
             "47327",
-            "4537",
             "12211",
             "20857",
             "18940",
             "110341",
             "4521",
-            "16870",
             "5214",
             "4531",
             "219",
+            "112848",
             "4509",
             "56684",
-            "222",
             "16876",
+            "9956",
             "112432",
+            "112825",
             "73923",
+            "112840",
+            "69271",
             "107581",
             "110650",
+            "112824",
             "217",
             "16864",
             "73921",
@@ -672,16 +680,21 @@
             "4518",
             "16863",
             "112653",
+            "19637",
             "110339",
             "13635",
             "112410",
             "10446",
+            "4537",
             "13641",
+            "4530",
+            "661",
             "110417",
             "4529",
             "112662",
             "110501",
             "58622",
+            "112847",
             "56064",
             "111538",
             "218",
@@ -695,13 +708,17 @@
             "49847",
             "16875",
             "112633",
+            "112821",
             "110367",
+            "112859",
             "53175",
             "16904",
             "109487",
             "112445",
             "111537",
+            "112827",
             "110340",
+            "16870",
             "16866",
             "4519",
             "53460",
@@ -709,16 +726,14 @@
             "110499",
             "110338",
             "99224",
+            "110653",
             "4534",
             "110500",
-            "9956",
             "19585",
-            "19637",
-            "69271",
-            "4530",
             "223",
             "109309",
-            "110653",
+            "112852",
+            "222",
             "10135"
         ]
     },
@@ -856,6 +871,7 @@
         "code": "44",
         "parentCode": "1",
         "children": [
+            "112542",
             "494",
             "112417",
             "112416",
@@ -918,14 +934,15 @@
             "309",
             "52495",
             "110423",
+            "112855",
             "110422",
             "110481",
             "505",
             "607",
-            "696",
-            "1233",
             "47105",
             "61066",
+            "696",
+            "1233",
             "764",
             "53139",
             "384",
@@ -1100,6 +1117,7 @@
             "111544",
             "16610",
             "112785",
+            "112803",
             "56161",
             "112582",
             "58618",
@@ -1158,8 +1176,6 @@
         "code": "59",
         "parentCode": "7",
         "children": [
-            "18854",
-            "666",
             "50868",
             "1015",
             "52973",
@@ -1185,7 +1201,9 @@
             "16022",
             "54145",
             "110493",
-            "51324"
+            "51324",
+            "18854",
+            "666"
         ]
     },
     "60": {
@@ -1236,11 +1254,11 @@
             "337",
             "29497",
             "336",
-            "183",
             "110947",
             "335",
             "1098",
             "706",
+            "112860",
             "179"
         ]
     },
@@ -1564,9 +1582,11 @@
             "112778",
             "4532",
             "7690",
+            "112802",
             "7697",
             "18630",
             "112604",
+            "112819",
             "110364",
             "412",
             "7695",
@@ -1744,6 +1764,7 @@
             "14142",
             "110525",
             "16322",
+            "112822",
             "112451",
             "5435",
             "53577",
@@ -2026,7 +2047,6 @@
         "code": "106",
         "parentCode": "5",
         "children": [
-            "56759",
             "110998",
             "110895",
             "110353",
@@ -2035,6 +2055,7 @@
             "382",
             "13102",
             "53986",
+            "112837",
             "110352",
             "5603",
             "110479",
@@ -2043,6 +2064,7 @@
             "112593",
             "69989",
             "651",
+            "112874",
             "50870",
             "14942",
             "112492",
@@ -2053,11 +2075,14 @@
             "20165",
             "652",
             "13726",
+            "112828",
             "112695",
             "110355",
             "67142",
             "112650",
-            "110816"
+            "112836",
+            "110816",
+            "56759"
         ]
     },
     "107": {
@@ -2340,7 +2365,7 @@
     "135": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Кадастровые работы / Техническая инвентаризация, учет",
+        "label": "Кадастровые работы / Техническая инвентаризация, учёт",
         "code": "135",
         "parentCode": "52",
         "children": []
@@ -2617,14 +2642,6 @@
         "parentCode": "28",
         "children": []
     },
-    "183": {
-        "isRussian": true,
-        "isNonRussian": false,
-        "label": "Пейджинговые компании",
-        "code": "183",
-        "parentCode": "63",
-        "children": []
-    },
     "185": {
         "isRussian": true,
         "isNonRussian": true,
@@ -2788,7 +2805,7 @@
     "209": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Лекарственные препараты",
+        "label": "Лекарственные препараты - опт",
         "code": "209",
         "parentCode": "34",
         "children": []
@@ -2884,7 +2901,7 @@
     "222": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Стоматологические центры",
+        "label": "Частные стоматологии",
         "code": "222",
         "parentCode": "36",
         "children": []
@@ -5516,7 +5533,7 @@
     "634": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Стадионы",
+        "label": "Стадионы / Спортивные арены",
         "code": "634",
         "parentCode": "49",
         "children": []
@@ -5572,7 +5589,7 @@
     "641": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Ветеринарные препараты",
+        "label": "Ветеринарные препараты - опт",
         "code": "641",
         "parentCode": "33",
         "children": []
@@ -5732,7 +5749,7 @@
     "661": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Диагностические центры",
+        "label": "Услуги медицинской диагностики",
         "code": "661",
         "parentCode": "36",
         "children": []
@@ -6370,6 +6387,7 @@
         "children": [
             "360",
             "361",
+            "112801",
             "19290",
             "110370",
             "19288",
@@ -6481,7 +6499,6 @@
         "code": "956",
         "parentCode": "3",
         "children": [
-            "377",
             "511",
             "379",
             "50871",
@@ -6493,7 +6510,8 @@
             "50867",
             "306",
             "961",
-            "388"
+            "388",
+            "377"
         ]
     },
     "961": {
@@ -7230,7 +7248,7 @@
     "4518": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Услуги дерматовенеролога",
+        "label": "Услуги дерматолога",
         "code": "4518",
         "parentCode": "36",
         "children": []
@@ -7238,7 +7256,7 @@
     "4519": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Услуги уролога / андролога",
+        "label": "Услуги уролога",
         "code": "4519",
         "parentCode": "36",
         "children": []
@@ -7262,7 +7280,7 @@
     "4530": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Центры мануальной терапии",
+        "label": "Услуги мануального терапевта",
         "code": "4530",
         "parentCode": "36",
         "children": []
@@ -7302,7 +7320,7 @@
     "4537": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Лечение ЛОР-заболеваний",
+        "label": "Услуги ЛОРа (отоларинголога)",
         "code": "4537",
         "parentCode": "36",
         "children": []
@@ -7376,6 +7394,7 @@
             "110073",
             "112789",
             "59508",
+            "112854",
             "143",
             "227",
             "16182",
@@ -7966,7 +7985,7 @@
     "8463": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Главное управление по вопросам миграции МВД РФ",
+        "label": "Управления по вопросам миграции МВД РФ",
         "code": "8463",
         "parentCode": "21",
         "children": []
@@ -8174,7 +8193,7 @@
     "9956": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Центры альтернативной медицины",
+        "label": "Услуги альтернативной медицины",
         "code": "9956",
         "parentCode": "36",
         "children": []
@@ -9266,7 +9285,7 @@
     "16870": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Ортопедия и травматология",
+        "label": "Услуги травматолога-ортопеда",
         "code": "16870",
         "parentCode": "36",
         "children": []
@@ -9714,7 +9733,7 @@
     "19637": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Центры диетологии / нутрициологии",
+        "label": "Услуги диетолога",
         "code": "19637",
         "parentCode": "36",
         "children": []
@@ -10116,7 +10135,7 @@
     },
     "23499": {
         "isRussian": true,
-        "isNonRussian": true,
+        "isNonRussian": false,
         "label": "Таксидермические студии",
         "code": "23499",
         "parentCode": "93",
@@ -10417,7 +10436,6 @@
         "code": "42908",
         "parentCode": "969",
         "children": [
-            "22129",
             "339",
             "110429",
             "67369",
@@ -10438,7 +10456,8 @@
             "110472",
             "110509",
             "110416",
-            "103405"
+            "103405",
+            "22129"
         ]
     },
     "44938": {
@@ -10491,7 +10510,7 @@
     },
     "47245": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Мавзолей",
         "code": "47245",
         "parentCode": "31",
@@ -11415,7 +11434,7 @@
     },
     "52248": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Рюмочные",
         "code": "52248",
         "parentCode": "25",
@@ -12240,7 +12259,7 @@
     },
     "56581": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Избирательные участки",
         "code": "56581",
         "parentCode": "44",
@@ -12588,7 +12607,7 @@
     "69271": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Центры иммунизации",
+        "label": "Услуги вакцинации",
         "code": "69271",
         "parentCode": "36",
         "children": []
@@ -12740,7 +12759,7 @@
     "73924": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Услуги генетика / Генетические исследования",
+        "label": "Услуги генетика",
         "code": "73924",
         "parentCode": "36",
         "children": []
@@ -12907,7 +12926,7 @@
     },
     "103240": {
         "isRussian": true,
-        "isNonRussian": true,
+        "isNonRussian": false,
         "label": "Услуга распила мяса",
         "code": "103240",
         "parentCode": "70",
@@ -13364,7 +13383,7 @@
     "110354": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Занятия лечебной физкультурой",
+        "label": "Занятия лечебной физкультурой (ЛФК)",
         "code": "110354",
         "parentCode": "36",
         "children": []
@@ -13372,7 +13391,7 @@
     "110355": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Услуги по уходу за ресницами / бровями",
+        "label": "Услуги по оформлению ресниц / бровей",
         "code": "110355",
         "parentCode": "106",
         "children": []
@@ -13515,7 +13534,7 @@
     },
     "110377": {
         "isRussian": true,
-        "isNonRussian": true,
+        "isNonRussian": false,
         "label": "ВУМ гимнастика для женщин",
         "code": "110377",
         "parentCode": "19519",
@@ -13841,6 +13860,14 @@
         "parentCode": "26",
         "children": []
     },
+    "110432": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "УПС",
+        "code": "110432",
+        "parentCode": "21",
+        "children": []
+    },
     "110433": {
         "isRussian": true,
         "isNonRussian": true,
@@ -13859,7 +13886,7 @@
     },
     "110435": {
         "isRussian": true,
-        "isNonRussian": true,
+        "isNonRussian": false,
         "label": "Оборудование для горнолыжных комплексов",
         "code": "110435",
         "parentCode": "7795",
@@ -14452,7 +14479,7 @@
     "110653": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Челюстно-лицевая хирургия",
+        "label": "Услуги челюстно-лицевого хирурга",
         "code": "110653",
         "parentCode": "36",
         "children": []
@@ -14883,7 +14910,7 @@
     },
     "112425": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Ремонт оборудования для автосервиса",
         "code": "112425",
         "parentCode": "7795",
@@ -15028,7 +15055,7 @@
     "112455": {
         "isRussian": true,
         "isNonRussian": true,
-        "label": "Авиатренажеры",
+        "label": "Авиатренажёры",
         "code": "112455",
         "parentCode": "26",
         "children": []
@@ -15135,6 +15162,14 @@
         "label": "Отели для свиданий",
         "code": "112541",
         "parentCode": "50",
+        "children": []
+    },
+    "112542": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Благотворительные контейнеры",
+        "code": "112542",
+        "parentCode": "44",
         "children": []
     },
     "112545": {
@@ -15395,7 +15430,7 @@
     },
     "112623": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Музыкальное оформление бизнеса",
         "code": "112623",
         "parentCode": "59",
@@ -15459,7 +15494,7 @@
     },
     "112637": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Онлайн-кинотеатры",
         "code": "112637",
         "parentCode": "27",
@@ -15651,7 +15686,7 @@
     },
     "112679": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Мебель для салонов красоты",
         "code": "112679",
         "parentCode": "68",
@@ -15675,7 +15710,7 @@
     },
     "112682": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Пляжные принадлежности",
         "code": "112682",
         "parentCode": "69",
@@ -15723,7 +15758,7 @@
     },
     "112697": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Залы ожидания повышенного комфорта",
         "code": "112697",
         "parentCode": "22191",
@@ -15763,7 +15798,7 @@
     },
     "112780": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Устранение запахов сухим туманом / озонированием",
         "code": "112780",
         "parentCode": "114",
@@ -15803,7 +15838,7 @@
     },
     "112787": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Услуги автоинструктора",
         "code": "112787",
         "parentCode": "39",
@@ -15843,7 +15878,7 @@
     },
     "112792": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Аренда детских пространств для праздников",
         "code": "112792",
         "parentCode": "26",
@@ -15851,7 +15886,7 @@
     },
     "112793": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Центры подключения курьеров",
         "code": "112793",
         "parentCode": "61",
@@ -15867,7 +15902,7 @@
     },
     "112796": {
         "isRussian": true,
-        "isNonRussian": false,
+        "isNonRussian": true,
         "label": "Услуги печника",
         "code": "112796",
         "parentCode": "93",
@@ -15879,6 +15914,214 @@
         "label": "Мангалы / Коптильни / Тандыры",
         "code": "112797",
         "parentCode": "93",
+        "children": []
+    },
+    "112800": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Международные пункты пропуска",
+        "code": "112800",
+        "parentCode": "21",
+        "children": []
+    },
+    "112801": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Магазины разливного вина",
+        "code": "112801",
+        "parentCode": "913",
+        "children": []
+    },
+    "112802": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Резка / ремонт автозеркал",
+        "code": "112802",
+        "parentCode": "77",
+        "children": []
+    },
+    "112803": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Комнаты матери и ребёнка",
+        "code": "112803",
+        "parentCode": "56",
+        "children": []
+    },
+    "112819": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Ремонт / установка подушек безопасности",
+        "code": "112819",
+        "parentCode": "77",
+        "children": []
+    },
+    "112821": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Услуги радиотерапевта",
+        "code": "112821",
+        "parentCode": "36",
+        "children": []
+    },
+    "112822": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Картоматы",
+        "code": "112822",
+        "parentCode": "89",
+        "children": []
+    },
+    "112824": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Услуги вестибулолога",
+        "code": "112824",
+        "parentCode": "36",
+        "children": []
+    },
+    "112825": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Услуги андролога",
+        "code": "112825",
+        "parentCode": "36",
+        "children": []
+    },
+    "112827": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Услуги суррогатного материнства",
+        "code": "112827",
+        "parentCode": "36",
+        "children": []
+    },
+    "112828": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Услуги перманентного макияжа",
+        "code": "112828",
+        "parentCode": "106",
+        "children": []
+    },
+    "112836": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Флоатинг",
+        "code": "112836",
+        "parentCode": "106",
+        "children": []
+    },
+    "112837": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Криосауна",
+        "code": "112837",
+        "parentCode": "106",
+        "children": []
+    },
+    "112840": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Услуги артролога",
+        "code": "112840",
+        "parentCode": "36",
+        "children": []
+    },
+    "112847": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Услуги нутрициолога",
+        "code": "112847",
+        "parentCode": "36",
+        "children": []
+    },
+    "112848": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Проведение хирургических операций",
+        "code": "112848",
+        "parentCode": "36",
+        "children": []
+    },
+    "112852": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Частные детские стоматологии",
+        "code": "112852",
+        "parentCode": "36",
+        "children": []
+    },
+    "112853": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Детские стоматологические поликлиники",
+        "code": "112853",
+        "parentCode": "35",
+        "children": []
+    },
+    "112854": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Номера экстренных служб",
+        "code": "112854",
+        "parentCode": "5420",
+        "children": []
+    },
+    "112855": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Ремонт спортивной экипировки",
+        "code": "112855",
+        "parentCode": "48",
+        "children": []
+    },
+    "112858": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Администрация Президента",
+        "code": "112858",
+        "parentCode": "16",
+        "children": []
+    },
+    "112859": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Услуги репродуктолога",
+        "code": "112859",
+        "parentCode": "36",
+        "children": []
+    },
+    "112860": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Супермаркеты посылок",
+        "code": "112860",
+        "parentCode": "63",
+        "children": []
+    },
+    "112867": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Центры амбулаторной онкологической помощи (ЦАОП)",
+        "code": "112867",
+        "parentCode": "35",
+        "children": []
+    },
+    "112874": {
+        "isRussian": true,
+        "isNonRussian": true,
+        "label": "Студии медитации",
+        "code": "112874",
+        "parentCode": "106",
+        "children": []
+    },
+    "112875": {
+        "isRussian": true,
+        "isNonRussian": false,
+        "label": "Городские мероприятия",
+        "code": "112875",
+        "parentCode": "31",
         "children": []
     },
     "-1": {

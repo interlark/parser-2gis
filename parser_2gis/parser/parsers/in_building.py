@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 
 class InBuildingParser(MainParser):
-    """Parser for the list of organisations provided by 2GIS with the tab "In building".
+    """Parser for the list of organizations provided by 2GIS with the tab "In building".
 
     URL pattern for such cases: https://2gis.<domain>/<city_id>/inside/<building_id>
     """

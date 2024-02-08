@@ -17,6 +17,15 @@ from .file_writer import FileWriter
 class CSVWriter(FileWriter):
     """Writer to CSV table."""
     @property
+    def _type_names(self) -> dict[str, str]:
+        return {
+            'parking': 'Парковка',
+            'street': 'Улица',
+            'road': 'Дорога',
+            'crossroad': 'Перекрёсток',
+        }
+
+    @property
     def _complex_mapping(self) -> dict[str, Any]:
         # Complex mapping means its content could contain several entities bound by user settings.
         # For example: phone -> phone_1, phone_2, ..., phone_n
@@ -77,10 +86,10 @@ class CSVWriter(FileWriter):
             self._remove_empty_columns()
         if self._options.csv.remove_duplicates:
             logger.info('Удаление повторяющихся записей CSV.')
-            self._remove_dublicates()
+            self._remove_duplicates()
 
     def _remove_empty_columns(self) -> None:
-        """Postprocess: Remove empty columns."""
+        """Post-process: Remove empty columns."""
         complex_columns = self._complex_mapping.keys()
         complex_columns_count = {c: 0 for c in self._data_mapping.keys() if
                                  re.match('|'.join(fr'^{x}_\d+$' for x in complex_columns), c)}
@@ -125,8 +134,8 @@ class CSVWriter(FileWriter):
         # Replace original table with new one
         shutil.move(tmp_csv_name, self._file_path)
 
-    def _remove_dublicates(self) -> None:
-        """Postprocess: Remove dublicates."""
+    def _remove_duplicates(self) -> None:
+        """Post-process: Remove duplicates."""
         tmp_csv_name = os.path.splitext(self._file_path)[0] + '.deduplicated.csv'
         with self._open_file(tmp_csv_name, 'w') as f_tmp_csv, \
                 self._open_file(self._file_path, 'r') as f_csv:
@@ -185,8 +194,13 @@ class CSVWriter(FileWriter):
             return {}
 
         # Name, description
-        data['name'] = catalog_item.name_ex.primary
-        data['description'] = catalog_item.name_ex.extension
+        if catalog_item.name_ex:
+            data['name'] = catalog_item.name_ex.primary
+            data['description'] = catalog_item.name_ex.extension
+        elif catalog_item.name:
+            data['name'] = catalog_item.name
+        elif catalog_item.type in self._type_names:
+            data['name'] = self._type_names[catalog_item.type]
 
         # Address
         data['address'] = catalog_item.address_name
@@ -228,7 +242,7 @@ class CSVWriter(FileWriter):
 
                 Args:
                     contact_type: Contact type (see `Contact` in `catalog_item.py`)
-                    priority_fields: Field of contact to be added, sorted by priotity
+                    priority_fields: Field of contact to be added, sorted by priority
                     formatter: Field value formatter
                 """
                 contacts = [x for x in contact_group.contacts if x.type == contact_type]

@@ -4,7 +4,7 @@ import base64
 import queue
 import re
 import threading
-from typing import TYPE_CHECKING, Any, Callable, Dict
+from typing import TYPE_CHECKING, Any, Callable, Dict, Optional
 
 import pychrome
 import requests
@@ -15,6 +15,7 @@ from ..common import wait_until_finished
 from .browser import ChromeBrowser
 from .dom import DOMNode
 from .exceptions import ChromeException
+from .patches import patch_all
 
 if TYPE_CHECKING:
     from .options import ChromeOptions
@@ -22,13 +23,16 @@ if TYPE_CHECKING:
     Request = Dict[str, Any]
     Response = Dict[str, Any]
 
+# Apply all custom patches
+patch_all()
+
 
 class ChromeRemote:
     """Wrapper for Chrome DevTools Protocol Interface.
 
     Args:
         chrome_options: ChromeOptions parameters.
-        response_patterns: Repsonse URL patterns to capture.
+        response_patterns: Response URL patterns to capture.
     """
     def __init__(self, chrome_options: ChromeOptions, response_patterns: list[str]) -> None:
         self._chrome_options: ChromeOptions = chrome_options
@@ -37,7 +41,7 @@ class ChromeRemote:
         self._chrome_tab: pychrome.Tab
         self._response_patterns: list[str] = response_patterns
         self._response_queues: dict[str, queue.Queue[Response]] = {x: queue.Queue() for x in response_patterns}
-        self._requests: dict[str, Request] = {}  # _requests[rquest_id] = <Request>
+        self._requests: dict[str, Request] = {}  # _requests[request_id] = <Request>
         self._requests_lock = threading.Lock()
 
     @wait_until_finished(timeout=60)
@@ -194,7 +198,7 @@ class ChromeRemote:
 
         def monitor_tab() -> None:
             """V8 OOM could crash Chrome's tab and keep websocket functional
-            like nothing bad happend, so we better monitor tabs index page
+            like nothing bad happened, so we better monitor tabs index page
             and check if our tab is still alive."""
             while not self._chrome_tab._stopped.is_set():
                 try:
@@ -248,7 +252,7 @@ class ChromeRemote:
         """Wait for specified response with pre-defined pattern.
 
         Args:
-            response_pattern: Repsonse URL pattern.
+            response_pattern: Response URL pattern.
 
         Returns:
             Response or None in case of timeout.
@@ -301,7 +305,7 @@ class ChromeRemote:
         """Get Document DOM tree.
 
         Args:
-            full: Flag wheather to return full DOM or only root.
+            full: Flag wether to return full DOM or only root.
 
         Returns:
             Root DOM node.
@@ -346,13 +350,13 @@ class ChromeRemote:
                                                         returnByValue=True)
         return eval_result['result'].get('value', None)
 
-    def perform_click(self, dom_node: DOMNode) -> None:
+    def perform_click(self, dom_node: DOMNode, timeout: Optional[int] = None) -> None:
         """Perform mouse click on DOM node.
 
         Args:
             dom_node: DOMNode element.
         """
-        resolved_node = self._chrome_tab.DOM.resolveNode(backendNodeId=dom_node.backend_id)
+        resolved_node = self._chrome_tab.DOM.resolveNode(backendNodeId=dom_node.backend_id, _timeout=timeout)
         object_id = resolved_node['object']['objectId']
         self._chrome_tab.Runtime.callFunctionOn(objectId=object_id, functionDeclaration='''
             (function() { this.scrollIntoView({ block: "center",  behavior: "instant" }); this.click(); })
@@ -363,7 +367,7 @@ class ChromeRemote:
         self._chrome_tab.wait(timeout)
 
     def stop(self) -> None:
-        """Close browser, dissconnect interface."""
+        """Close browser, disconnect interface."""
         # Close tab and browser
         if self._chrome_tab:
             try:

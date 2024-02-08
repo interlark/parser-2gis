@@ -1,6 +1,6 @@
 import re
 
-from .parsers import InBuildingParser, MainParser
+from .parsers import FirmParser, InBuildingParser, MainParser
 
 
 def get_parser(url, chrome_options, parser_options):
@@ -14,7 +14,7 @@ def get_parser(url, chrome_options, parser_options):
     Returns:
         Parser instance.
     """
-    for parser in (InBuildingParser, MainParser):
+    for parser in (FirmParser, InBuildingParser, MainParser):
         if re.match(parser.url_pattern(), url):
             return parser(url, chrome_options, parser_options)
 
