@@ -181,7 +181,7 @@ class MainParser:
 
         # This wrapper is not necessary, but I'd like to be sure
         # we haven't gathered links from old DOM somehow.
-        @wait_until_finished(timeout=5, throw_exception=False)
+        @wait_until_finished(timeout=10, throw_exception=False)
         def get_unique_links() -> list[DOMNode]:
             links = self._get_links()
             link_addresses = set(x.attributes['href'] for x in links)
