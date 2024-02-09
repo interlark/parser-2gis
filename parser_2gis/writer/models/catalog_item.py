@@ -47,7 +47,7 @@ class CatalogItem(BaseModel):
     name_ex: Optional[NameEx] = None
 
     # Отзывы
-    reviews: Reviews
+    reviews: Optional[Reviews] = None
 
     # Организация
     org: Optional[Org] = None
@@ -74,7 +74,7 @@ class CatalogItem(BaseModel):
     type: str
 
     # Признак удаленного объекта
-    is_deleted: Optional[bool]
+    is_deleted: Optional[bool] = None
 
     @property
     def url(self) -> str:

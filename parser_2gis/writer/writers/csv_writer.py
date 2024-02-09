@@ -206,8 +206,9 @@ class CSVWriter(FileWriter):
         data['address'] = catalog_item.address_name
 
         # Reviews
-        data['general_rating'] = catalog_item.reviews.general_rating
-        data['general_review_count'] = catalog_item.reviews.general_review_count
+        if catalog_item.reviews:
+            data['general_rating'] = catalog_item.reviews.general_rating
+            data['general_review_count'] = catalog_item.reviews.general_review_count
 
         # Point location
         if catalog_item.point:

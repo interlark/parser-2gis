@@ -21,7 +21,7 @@ class Configuration(BaseModel):
     writer: WriterOptions = WriterOptions()
     chrome: ChromeOptions = ChromeOptions()
     parser: ParserOptions = ParserOptions()
-    path: Optional[pathlib.Path]
+    path: Optional[pathlib.Path] = None
     version: str = config_version
 
     def __init__(self, *args, **kwargs) -> None:
@@ -37,7 +37,7 @@ class Configuration(BaseModel):
         setup_config(self)
 
     def merge_with(self, other_config: Configuration) -> None:
-        """Merge configuration with onother one."""
+        """Merge configuration with another one."""
         def assign_attributes(model_source: BaseModel,
                               model_target: BaseModel) -> None:
             """Recursively assign new attributes to existing config."""
@@ -64,7 +64,7 @@ class Configuration(BaseModel):
                     auto_create: bool = True) -> Configuration:
         """Load configuration from path. If path is not specified,
         configuration gets loaded from user's configuration path.
-        If errors occured during loading, method would fallback to
+        If errors occurred during loading, method would fallback to
         default configuration.
 
         Note:
