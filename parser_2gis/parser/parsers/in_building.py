@@ -29,7 +29,7 @@ class InBuildingParser(MainParser):
         """Extracts specific DOM node links from current DOM snapshot."""
         def valid_link(node: DOMNode) -> bool:
             if node.local_name == 'a' and 'href' in node.attributes:
-                link_match = re.match(r'.+/firm/[^/]+$', node.attributes['href'])
+                link_match = re.match(r'/[^/]+/firm/[^/]+$', node.attributes['href'])
                 return bool(link_match)
 
             return False
