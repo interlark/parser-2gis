@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Download cities info for following countries:
-# ae, az, bh, by, cl, cy, cz, eg, it, kg, kw, kz, om, qa, ru, sa, ua, uz
+# ae, az, bh, by, cl, cy, cz, eg, it, kg, kw, kz, om, qa, ru, sa, uz
 
 import json
 import os

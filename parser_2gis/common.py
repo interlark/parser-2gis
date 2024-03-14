@@ -56,13 +56,14 @@ def wait_until_finished(timeout: int | None = None,
             call_time = time.time()
             while True:
                 ret = func(*args, **kwargs)
-                if not timeout or finished(ret):
+                if finished(ret):
                     return ret
 
-                if time.time() - call_time > timeout:
-                    if throw_exception:
-                        raise TimeoutError(func)
-                    return ret
+                if timeout is not None:
+                    if time.time() - call_time > timeout:
+                        if throw_exception:
+                            raise TimeoutError(func)
+                        return ret
 
                 time.sleep(poll_interval)
         return inner

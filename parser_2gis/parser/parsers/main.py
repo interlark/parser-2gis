@@ -60,7 +60,7 @@ class MainParser:
         """Extracts specific DOM node links from current DOM snapshot."""
         def valid_link(node: DOMNode) -> bool:
             if node.local_name == 'a' and 'href' in node.attributes:
-                link_match = re.match(r'.*/firm/.*\?stat=(?P<data>[a-zA-Z0-9%]+)', node.attributes['href'])
+                link_match = re.match(r'.*/(firm|station)/.*\?stat=(?P<data>[a-zA-Z0-9%]+)', node.attributes['href'])
                 if link_match:
                     try:
                         base64.b64decode(urllib.parse.unquote(link_match.group('data')))

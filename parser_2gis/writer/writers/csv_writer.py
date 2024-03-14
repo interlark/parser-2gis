@@ -23,6 +23,7 @@ class CSVWriter(FileWriter):
             'street': 'Улица',
             'road': 'Дорога',
             'crossroad': 'Перекрёсток',
+            'station': 'Остановка',
         }
 
     @property
@@ -59,6 +60,7 @@ class CSVWriter(FileWriter):
                 'point_lat': 'Широта',
                 'point_lon': 'Долгота',
                 'url': '2GIS URL',
+                'type': 'Тип',
             }
         }
 
@@ -201,6 +203,9 @@ class CSVWriter(FileWriter):
             data['name'] = catalog_item.name
         elif catalog_item.type in self._type_names:
             data['name'] = self._type_names[catalog_item.type]
+
+        # Type
+        data['type'] = catalog_item.type
 
         # Address
         data['address'] = catalog_item.address_name

@@ -2,6 +2,12 @@
 
 ## [Невошедшее]
 
+## [1.2.1] - 14-03-2024
+### Добавлено
+- Добавлена поддержка парсинга остановок. Fix [issue](https://github.com/interlark/parser-2gis/issues/52).
+- Генератор ссылок добавляет в URL сортировку по алфавиту для исключения повторений поисковой выдачи при навигации по страницам.
+- Обновлён список рубрик.
+
 ## [1.2.0] - 08-02-2024
 ### Добавлено
 - Небольшой багфикс схемы ответов сервера.
@@ -88,7 +94,8 @@
 - Первый релиз.
 
 
-[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v1.2.0...HEAD
+[Невошедшее]: https://github.com/interlark/parser-2gis/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/interlark/parser-2gis/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/interlark/parser-2gis/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/interlark/parser-2gis/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/interlark/parser-2gis/compare/v1.1.0...v1.1.1

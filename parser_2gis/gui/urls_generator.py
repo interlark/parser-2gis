@@ -39,7 +39,7 @@ def gui_urls_generator() -> list[str]:
         ae='Объединенные Арабские Эмираты', iq='Ирак',
         az='Азербайджан', bh='Бахрейн', by='Беларусь', cl='Чили', cy='Кипр', cz='Чехия',
         eg='Египт', it='Италия', kg='Киргизия', kw='Кувейт', kz='Казахстан', om='Оман',
-        qa='Катар', ru='Россия', sa='Саудовская Аравия', ua='Украина', uz='Узбекистан')
+        qa='Катар', ru='Россия', sa='Саудовская Аравия', uz='Узбекистан')
 
     country_name_to_code = {v: k for k, v in country_code_to_name.items()}
 
@@ -181,6 +181,8 @@ def gui_urls_generator() -> list[str]:
             rest_url = f'/search/{url_query_encode(query)}'
             if rubric:
                 rest_url += f'/rubricId/{rubric["code"]}'
+
+            rest_url += '/filters/sort=name'
 
             url = base_url + rest_url
             urls.append(url)
