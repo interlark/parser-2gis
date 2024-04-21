@@ -15,8 +15,13 @@ jobs:
           - os: ubuntu-20.04
             dist: linux
 
-          - os: macos-11
+          - os: macos-12
             dist: macos
+            ext:
+
+          - os: macos-14
+            dist: macos-arm
+            ext:
 
           - os: windows-2019
             dist: windows

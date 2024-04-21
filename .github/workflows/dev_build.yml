@@ -14,8 +14,12 @@ jobs:
             dist: linux
             ext:
 
-          - os: macos-11
+          - os: macos-12
             dist: macos
+            ext:
+
+          - os: macos-14
+            dist: macos-arm
             ext:
 
           - os: windows-2019
@@ -49,4 +53,4 @@ jobs:
       with:
         name: Parser2GIS-dev-${{matrix.dist}}
         path: dist/Parser2GIS${{matrix.ext}}
-        retention-days: 5
+        retention-days: 30
