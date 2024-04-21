@@ -1,6 +1,7 @@
 import distutils.cmd
 import pathlib
 import re
+import sys
 
 from setuptools import setup
 
@@ -106,13 +107,17 @@ if __name__ == '__main__':
             'gui': [
                 'PySimpleGUI==4.59.0',
             ],
-            'dev': [
-                'pyinstaller>=6.6.0',
-                'pytest>=6.2,<8',
-                'tox>=3.5,<4',
-                'pre-commit>=2.6',
-                'wheel>=0.36.2,<0.38',
-            ],
+            'dev': (
+                ["pyinstaller>=5.0,<5.7.0"]
+                if sys.platform.startswith("win")
+                else ["pyinstaller>=6.6.0"]
+                + [
+                    "pytest>=6.2,<8",
+                    "tox>=3.5,<4",
+                    "pre-commit>=2.6",
+                    "wheel>=0.36.2,<0.38",
+                ]
+            ),
         },
         classifiers=[
             "Topic :: Internet",
