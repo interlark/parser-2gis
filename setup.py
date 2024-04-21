@@ -108,10 +108,11 @@ if __name__ == '__main__':
                 'PySimpleGUI==4.59.0',
             ],
             'dev': (
-                ["pyinstaller>=5.0,<5.7.0"]
-                if sys.platform.startswith("win")
-                else ["pyinstaller>=6.6.0"]
-                + [
+                (
+                    ["pyinstaller>=5.0,<5.7.0"]
+                    if sys.platform.startswith("win")
+                    else ["pyinstaller>=6.6.0"]
+                ) + [
                     "pytest>=6.2,<8",
                     "tox>=3.5,<4",
                     "pre-commit>=2.6",
